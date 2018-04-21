@@ -13,7 +13,7 @@ sudo apt-get update
 sudo apt-get install code
 
 ## 安装软件
-sudo apt-get install gedit-source-code-browser-plugin vim xclip tree \
+sudo apt-get install gedit-source-code-browser-plugin rhythmbox-plugin-alternative-toolbar vim xclip tree \
 gcc gcc-doc g++ make make-doc gdb gdb-doc clang clang-format clang-tidy \
 irssi irssi-scripts irssi-plugin-xmpp irssi-plugin-otr \
 breeze-cursor-theme breeze-icon-theme numix-gtk-theme \
