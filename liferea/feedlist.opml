@@ -20,7 +20,6 @@
     </outline>
     <outline title="tech" text="tech" description="tech" type="folder">
       <outline title="&#x963F;&#x91CC;&#x4E2D;&#x95F4;&#x4EF6;&#x56E2;&#x961F;&#x535A;&#x5BA2;" text="&#x963F;&#x91CC;&#x4E2D;&#x95F4;&#x4EF6;&#x56E2;&#x961F;&#x535A;&#x5BA2;" description="&#x963F;&#x91CC;&#x4E2D;&#x95F4;&#x4EF6;&#x56E2;&#x961F;&#x535A;&#x5BA2;" type="atom" xmlUrl="http://jm.taobao.org/atom.xml" htmlUrl="http://jm.taobao.org/"/>
-      <outline title="&#x7F51;&#x6613;&#x4E91;&#x535A;&#x5BA2;" text="&#x7F51;&#x6613;&#x4E91;&#x535A;&#x5BA2;" description="&#x7F51;&#x6613;&#x4E91;&#x535A;&#x5BA2;" type="rss" xmlUrl="http://blog.163yun.com/feed" htmlUrl="http://blog.163yun.com"/>
     </outline>
     <outline title="InfoQ" text="InfoQ" description="InfoQ" type="folder">
       <outline title="InfoQ" text="InfoQ" description="InfoQ" type="rss" xmlUrl="http://www.infoq.com/cn/feed" htmlUrl="http://www.infoq.com/cn/"/>
