@@ -17,7 +17,7 @@ sudo apt-get install gedit-source-code-browser-plugin rhythmbox-plugin-alternati
 gcc gcc-doc g++ make make-doc gdb gdb-doc clang clang-format clang-tidy \
 irssi irssi-scripts irssi-plugin-xmpp irssi-plugin-otr \
 breeze-cursor-theme breeze-icon-theme numix-gtk-theme \
-rar zip unrar unzip p7zip \
+rar zip unrar unzip p7zip net-tools \
 codelite codelite-plugins blender blender-ogrexml-1.9 deluge deluge-torrent aria2 git retext liferea
 
 
