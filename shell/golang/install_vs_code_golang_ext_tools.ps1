@@ -193,21 +193,19 @@ showError $? "BUILD goimports"
 log "DONE" "BUILD goimports"
 echo ""
 
+# -------------------------------------------------------------------------------
+# https://github.com/Microsoft/vscode-go/blob/master/src/goInstallTools.ts
+# -------------------------------------------------------------------------------
 
 # -------------------------------------------------------------------------------
 # gocode
 # -------------------------------------------------------------------------------
 build https://github.com/mdempsky/gocode.git gocode github.com/mdempsky/gocode
 
-
 # -------------------------------------------------------------------------------
 # gocode-gomod
 # -------------------------------------------------------------------------------
 build https://github.com/stamblerre/gocode.git gocode-gomod github.com/stamblerre/gocode
-
-
-
-
 
 # -------------------------------------------------------------------------------
 # gopkgs
@@ -243,7 +241,7 @@ github https://github.com/skratchdot/open-golang.git  "$env:GOPATH/src/github.co
 build https://github.com/haya14busa/goplay.git goplay github.com/haya14busa/goplay/cmd/goplay
 
 # -------------------------------------------------------------------------------
-# goplay
+# impl
 # -------------------------------------------------------------------------------
 build https://github.com/josharian/impl.git impl github.com/josharian/impl
 
@@ -256,11 +254,6 @@ build https://github.com/tylerb/gotype-live.git gotype-live github.com/tylerb/go
 # godef
 # -------------------------------------------------------------------------------
 build https://github.com/rogpeppe/godef.git godef github.com/rogpeppe/godef
-
-# -------------------------------------------------------------------------------
-# godef-gomod
-# -------------------------------------------------------------------------------
-build https://github.com/ianthehat/godef.git godef-gomod github.com/ianthehat/godef
 
 # -------------------------------------------------------------------------------
 # gogetdoc
@@ -306,7 +299,7 @@ build https://github.com/sourcegraph/go-langserver.git go-langserver github.com/
 # -------------------------------------------------------------------------------
 # dlv
 # -------------------------------------------------------------------------------
-build https://github.com/derekparker/delve.git dlv github.com/derekparker/delve/cmd/dlv
+build https://github.com/go-delve/delve.git dlv github.com/go-delve/delve/cmd/dlv
 
 # -------------------------------------------------------------------------------
 # fillstruct
@@ -324,12 +317,12 @@ log "DONE" "BUILD goformat"
 echo ""
 
 # -------------------------------------------------------------------------------
-# megacheck
+# staticcheck
 # -------------------------------------------------------------------------------
-log "START" "BUILD megacheck"
+log "START" "BUILD staticcheck"
 github https://github.com/kisielk/gotool.git  "$env:GOPATH/src/github.com/kisielk/gotool" master
 github https://github.com/dominikh/go-tools.git "$env:GOPATH/src/honnef.co/go/tools" master
 go install honnef.co/go/tools/...
-showError $? "BUILD megacheck"
-log "DONE" "BUILD megacheck"
+showError $? "BUILD staticcheck"
+log "DONE" "BUILD staticcheck"
 echo ""
