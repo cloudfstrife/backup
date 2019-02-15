@@ -20,8 +20,8 @@
 - [网络](#网络)
 	- [gopacket](#gopacket)
 - [Web框架](#Web框架)
-	- [Revel Framework](#Revel Framework)
-	- [Gin Web Framework](#Gin Web Framework)
+	- [Revel Framework](#Revel)
+	- [Gin Web Framework](#Gin)
 - [其它](#其它)
 	- [TOML](#TOML)
 	- [ln](#ln)
@@ -112,13 +112,13 @@ go get -u -v github.com/google/gopacket
 
 ## Web框架
 
-### Revel Framework
+### Revel
 
 ```
 go get -u github.com/revel/cmd/revel
 ```
 
-### Gin Web Framework
+### Gin
 
 ```
 go get -u github.com/gin-gonic/gin
