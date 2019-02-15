@@ -41,7 +41,7 @@ go get -u github.com/g3n/engine/...
 
 ```
 go get -u gonum.org/v1/gonum/...
-go get gonum.org/v1/plot/...
+go get -u gonum.org/v1/plot/...
 ```
 
 ## 数据库驱动
@@ -55,13 +55,13 @@ go get -u github.com/go-sql-driver/mysql
 ### PostgreSQL
 
 ```
-go get github.com/lib/pq
+go get -u github.com/lib/pq
 ```
 
 ### SQLite 
 
 ```
-go get github.com/mattn/go-sqlite3
+go get -u github.com/mattn/go-sqlite3
 ```
 
 ## 缓存
@@ -69,7 +69,7 @@ go get github.com/mattn/go-sqlite3
 ### Redis
 
 ```
-go get github.com/gomodule/redigo/redis
+go get -u github.com/gomodule/redigo/redis
 ```
 
 ## 命令行参数
@@ -129,8 +129,8 @@ go get -u github.com/gin-gonic/gin
 ### TOML
 
 ```
-go get github.com/BurntSushi/toml
-go get github.com/BurntSushi/toml/cmd/tomlv
+go get -u github.com/BurntSushi/toml
+go get -u github.com/BurntSushi/toml/cmd/tomlv
 tomlv some-toml-file.toml
 ```
 ### ln
@@ -138,5 +138,5 @@ tomlv some-toml-file.toml
 > The 3D Line Art Engine
 
 ```
-go get github.com/fogleman/ln/ln
+go get -u github.com/fogleman/ln/ln
 ```
