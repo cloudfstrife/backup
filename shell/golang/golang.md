@@ -31,8 +31,13 @@
 ### G3N
 
 ```
+# Debian
 sudo apt-get install xorg-dev libgl1-mesa-dev libopenal1 libopenal-dev libvorbis0a libvorbis-dev libvorbisfile3
-go get -u github.com/g3n/engine/...
+
+# openSUSE 
+sudo zypper install xorgproto-devel Mesa-libGL1 Mesa-libGL-devel openal-soft openal-soft-devel libvorbis0 libvorbis-devel glfw2-devel libXi-devel xorg-x11-devel 
+
+go get -u -v github.com/g3n/engine/...
 ```
 
 ## 科学计算
@@ -40,8 +45,8 @@ go get -u github.com/g3n/engine/...
 ### Gonum
 
 ```
-go get -u gonum.org/v1/gonum/...
-go get -u gonum.org/v1/plot/...
+go get -u -v gonum.org/v1/gonum/...
+go get -u -v gonum.org/v1/plot/...
 ```
 
 ## 数据库驱动
@@ -49,19 +54,19 @@ go get -u gonum.org/v1/plot/...
 ### MySQL 
 
 ```
-go get -u github.com/go-sql-driver/mysql
+go get -u -v github.com/go-sql-driver/mysql
 ```
 
 ### PostgreSQL
 
 ```
-go get -u github.com/lib/pq
+go get -u -v github.com/lib/pq
 ```
 
 ### SQLite 
 
 ```
-go get -u github.com/mattn/go-sqlite3
+go get -u -v github.com/mattn/go-sqlite3
 ```
 
 ## 缓存
@@ -69,7 +74,7 @@ go get -u github.com/mattn/go-sqlite3
 ### Redis
 
 ```
-go get -u github.com/gomodule/redigo/redis
+go get -u -v github.com/gomodule/redigo/redis
 ```
 
 ## 命令行参数
@@ -77,7 +82,7 @@ go get -u github.com/gomodule/redigo/redis
 ### Cobra
 
 ```
-go get -u github.com/spf13/cobra/cobra
+go get -u -v github.com/spf13/cobra/cobra
 ```
 
 ## 图像处理
@@ -85,13 +90,13 @@ go get -u github.com/spf13/cobra/cobra
 ### bild
 
 ```
-go get -u github.com/anthonynsimon/bild/...
+go get -u -v github.com/anthonynsimon/bild/...
 ```
 
 ### GIFT
 
 ```
-go get -u github.com/disintegration/gift
+go get -u -v github.com/disintegration/gift
 ```
 
 ## 日志
@@ -115,13 +120,13 @@ go get -u -v github.com/google/gopacket
 ### Revel
 
 ```
-go get -u github.com/revel/cmd/revel
+go get -u -v github.com/revel/cmd/revel
 ```
 
 ### Gin
 
 ```
-go get -u github.com/gin-gonic/gin
+go get -u -v github.com/gin-gonic/gin
 ```
 
 ## 其它
@@ -129,8 +134,8 @@ go get -u github.com/gin-gonic/gin
 ### TOML
 
 ```
-go get -u github.com/BurntSushi/toml
-go get -u github.com/BurntSushi/toml/cmd/tomlv
+go get -u -v github.com/BurntSushi/toml
+go get -u -v github.com/BurntSushi/toml/cmd/tomlv
 tomlv some-toml-file.toml
 ```
 ### ln
@@ -138,5 +143,5 @@ tomlv some-toml-file.toml
 > The 3D Line Art Engine
 
 ```
-go get -u github.com/fogleman/ln/ln
+go get -u -v github.com/fogleman/ln/ln
 ```
