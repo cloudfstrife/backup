@@ -140,6 +140,12 @@ go get -u -v github.com/BurntSushi/toml/cmd/tomlv
 tomlv some-toml-file.toml
 ```
 
+### Protocol Buffers
+
+```
+go get -u github.com/golang/protobuf/protoc-gen-go
+```
+
 ### ln
 
 > The 3D Line Art Engine
