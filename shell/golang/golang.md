@@ -25,7 +25,7 @@
 - [其它](#其它)
 	- [TOML](#TOML)
 	- [ln](#ln)
-	- [go mod -replace](go_mod_replace)
+	- [go mod -replace](#go_mod_replace)
 
 ## 游戏引擎
 
