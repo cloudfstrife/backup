@@ -307,6 +307,11 @@ build https://github.com/go-delve/delve.git dlv github.com/go-delve/delve/cmd/dl
 build https://github.com/davidrjenni/reftools.git fillstruct github.com/davidrjenni/reftools/cmd/fillstruct
 
 # -------------------------------------------------------------------------------
+# godoctor 
+# -------------------------------------------------------------------------------
+build https://github.com/godoctor/godoctor.git godoctor github.com/godoctor/godoctor
+
+# -------------------------------------------------------------------------------
 # goformat
 # -------------------------------------------------------------------------------
 log "START" "BUILD goformat"

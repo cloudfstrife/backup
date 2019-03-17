@@ -36,7 +36,7 @@
 sudo apt-get install xorg-dev libgl1-mesa-dev libopenal1 libopenal-dev libvorbis0a libvorbis-dev libvorbisfile3
 
 # openSUSE 
-sudo zypper install xorgproto-devel Mesa-libGL1 Mesa-libGL-devel openal-soft openal-soft-devel libvorbis0 libvorbis-devel glfw2-devel libXi-devel xorg-x11-devel 
+sudo zypper install Mesa-libGL1 Mesa-libGL-devel openal-soft openal-soft-devel libvorbis0 libvorbis-devel glfw2-devel libXi-devel xorg-x11-devel 
 
 go get -u -v github.com/g3n/engine/...
 ```
