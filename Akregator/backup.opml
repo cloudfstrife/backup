@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+ <head>
+  <text/>
+ </head>
+ <body>
+  <outline id="1140576883" text="嘶吼" isOpen="false">
+   <outline xmlUrl="http://www.4hou.com/category/business/feed" id="1748461154" archiveMode="globalDefault" type="rss" version="RSS" useCustomFetchInterval="false" fetchInterval="30" title="业务安全" maxArticleNumber="1000" description="" text="业务安全" maxArticleAge="60" htmlUrl="https://www.4hou.com"/>
+   <outline xmlUrl="http://www.4hou.com/category/binary/feed" id="1713553987" archiveMode="globalDefault" type="rss" version="RSS" useCustomFetchInterval="false" fetchInterval="30" title="二进制安全" maxArticleNumber="1000" description="" text="二进制安全" maxArticleAge="60" htmlUrl="https://www.4hou.com"/>
+   <outline xmlUrl="http://www.4hou.com/category/wireless/feed" id="336874978" archiveMode="globalDefault" type="rss" version="RSS" useCustomFetchInterval="false" fetchInterval="30" title="无线安全" maxArticleNumber="1000" description="" text="无线安全" maxArticleAge="60" htmlUrl="https://www.4hou.com"/>
+   <outline xmlUrl="http://www.4hou.com/category/system/feed" id="545887954" archiveMode="globalDefault" type="rss" version="RSS" useCustomFetchInterval="false" fetchInterval="30" title="系统安全" maxArticleNumber="1000" description="" text="系统安全" maxArticleAge="60" htmlUrl="https://www.4hou.com"/>
+   <outline xmlUrl="http://www.4hou.com/category/penetration/feed" id="750104723" archiveMode="globalDefault" type="rss" version="RSS" useCustomFetchInterval="false" fetchInterval="30" title="内网渗透" maxArticleNumber="1000" description="" text="内网渗透" maxArticleAge="60" htmlUrl="https://www.4hou.com"/>
+   <outline xmlUrl="http://www.4hou.com/category/typ/feed" id="1730795513" archiveMode="globalDefault" type="rss" version="RSS" useCustomFetchInterval="false" fetchInterval="30" title="勒索软件" maxArticleNumber="1000" description="" text="勒索软件" maxArticleAge="60" htmlUrl="https://www.4hou.com"/>
+   <outline xmlUrl="http://www.4hou.com/category/tools/feed" id="1526405135" archiveMode="globalDefault" type="rss" version="RSS" useCustomFetchInterval="false" fetchInterval="30" title="安全工具" maxArticleNumber="1000" description="" text="安全工具" maxArticleAge="60" htmlUrl="https://www.4hou.com"/>
+   <outline xmlUrl="http://www.4hou.com/category/data/feed" id="938343015" archiveMode="globalDefault" type="rss" version="RSS" useCustomFetchInterval="false" fetchInterval="30" title="数据库安全" maxArticleNumber="1000" description="" text="数据库安全" maxArticleAge="60" htmlUrl="https://www.4hou.com"/>
+   <outline xmlUrl="http://www.4hou.com/category/reverse/feed" id="30594541" archiveMode="globalDefault" type="rss" version="RSS" useCustomFetchInterval="false" fetchInterval="30" title="逆向破解" maxArticleNumber="1000" description="" text="逆向破解" maxArticleAge="60" htmlUrl="https://www.4hou.com"/>
+   <outline xmlUrl="http://www.4hou.com/category/special/feed" id="1507823122" archiveMode="globalDefault" type="rss" version="RSS" useCustomFetchInterval="false" fetchInterval="30" title="专题" maxArticleNumber="1000" description="" text="专题" maxArticleAge="60" htmlUrl="https://www.4hou.com"/>
+   <outline xmlUrl="http://www.4hou.com/technology/feed" id="1614157938" archiveMode="globalDefault" type="rss" version="RSS" useCustomFetchInterval="false" fetchInterval="30" title="技术" maxArticleNumber="1000" description="" text="技术" maxArticleAge="60" htmlUrl="https://www.4hou.com"/>
+   <outline xmlUrl="http://www.4hou.com/feed" id="2016144744" archiveMode="globalDefault" type="rss" version="RSS" useCustomFetchInterval="false" fetchInterval="30" title="嘶吼 RoarTalk – 回归最本质的信息安全,互联网安全新媒体,4hou.com" maxArticleNumber="1000" description="" text="嘶吼 RoarTalk – 回归最本质的信息安全,互联网安全新媒体,4hou.com" maxArticleAge="60" htmlUrl="https://www.4hou.com"/>
+   <outline xmlUrl="http://www.4hou.com/category/web/feed" id="933078844" archiveMode="globalDefault" type="rss" version="RSS" useCustomFetchInterval="false" fetchInterval="30" title="Web安全" maxArticleNumber="1000" description="" text="Web安全" maxArticleAge="60" htmlUrl="https://www.4hou.com"/>
+  </outline>
+  <outline id="1474350193" text="tech" isOpen="false">
+   <outline xmlUrl="https://tech.meituan.com/feed" id="880663661" archiveMode="globalDefault" type="rss" version="RSS" useCustomFetchInterval="false" fetchInterval="30" title="美团技术团队" maxArticleNumber="1000" description="美团技术团队最近更新内容。" text="美团技术团队" maxArticleAge="60" htmlUrl="https://tech.meituan.com/feed/"/>
+   <outline xmlUrl="http://jm.taobao.org/atom.xml" id="1659022878" archiveMode="globalDefault" type="rss" version="RSS" useCustomFetchInterval="false" fetchInterval="30" title="阿里中间件团队博客" maxArticleNumber="1000" description="致力于成为中国第一，世界一流的中间件技术团队" text="阿里中间件团队博客" maxArticleAge="60" htmlUrl="http://jm.taobao.org/"/>
+  </outline>
+ </body>
+</opml>
+
