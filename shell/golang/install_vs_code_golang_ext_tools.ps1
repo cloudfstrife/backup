@@ -11,6 +11,38 @@
 #
 #  ******************************************************************************
 
+# *******************************************************************************
+# https://github.com/Microsoft/vscode-go/blob/master/src/goInstallTools.ts
+# *******************************************************************************
+# 'gocode': 'github.com/mdempsky/gocode',
+# 'gocode-gomod': 'github.com/stamblerre/gocode',
+# 'gopkgs': 'github.com/uudashr/gopkgs/cmd/gopkgs',
+# 'go-outline': 'github.com/ramya-rao-a/go-outline',
+# 'go-symbols': 'github.com/acroca/go-symbols',
+# 'guru': 'golang.org/x/tools/cmd/guru',
+# 'gorename': 'golang.org/x/tools/cmd/gorename',
+# 'gomodifytags': 'github.com/fatih/gomodifytags',
+# 'goplay': 'github.com/haya14busa/goplay/cmd/goplay',
+# 'impl': 'github.com/josharian/impl',
+# 'gotype-live': 'github.com/tylerb/gotype-live',
+# 'godef': 'github.com/rogpeppe/godef',
+# 'gogetdoc': 'github.com/zmb3/gogetdoc',
+# 'goimports': 'golang.org/x/tools/cmd/goimports',
+# 'goreturns': 'github.com/sqs/goreturns',
+# 'goformat': 'winterdrache.de/goformat/goformat',
+# 'golint': 'golang.org/x/lint/golint',
+# 'gotests': 'github.com/cweill/gotests/...',
+# 'gometalinter': 'github.com/alecthomas/gometalinter',
+# 'staticcheck': 'honnef.co/go/tools/...',
+# 'golangci-lint': 'github.com/golangci/golangci-lint/cmd/golangci-lint',
+# 'revive': 'github.com/mgechev/revive',
+# 'go-langserver': 'github.com/sourcegraph/go-langserver',
+# 'gopls': 'golang.org/x/tools/cmd/gopls',
+# 'dlv': 'github.com/go-delve/delve/cmd/dlv',
+# 'fillstruct': 'github.com/davidrjenni/reftools/cmd/fillstruct',
+# 'godoctor': 'github.com/godoctor/godoctor',
+#  ******************************************************************************
+
 # git项目URL后缀
 $GIT_POSTFIX=".git"
 # git项目URL后缀
@@ -38,7 +70,6 @@ function showError([String]$status,$context){
 function log($status,$context){
     Write-Output "$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss') [ $status ] : $context"
 }
-
 
 # -------------------------------------------------------------------------------
 # 克隆（拉取）git 项目指定分支到指定目录
@@ -78,7 +109,6 @@ function github($url,$target_path,$branch){
     }
 }
 
-
 # -------------------------------------------------------------------------------
 # 构建 go 扩展依赖工具
 # 参数一：git仓库地址
@@ -88,7 +118,6 @@ function github($url,$target_path,$branch){
 # build https://github.com/mdempsky/gocode.git gocode github.com/mdempsky/gocode
 # -------------------------------------------------------------------------------
 function build($url,$tool_name,$build_path){
-    
     if ( [String]::IsNullOrEmpty($build_path) ){
         showError $false "build function invoked without enough parameter"
     }
@@ -109,7 +138,6 @@ function build($url,$tool_name,$build_path){
     log "DONE" "BUILD $tool_name"
     Write-Output ""
 }
-
 
 # -------------------------------------------------------------------------------
 # golang
@@ -156,7 +184,6 @@ Write-Output ""
 log "DONE" "FETCH golang build-in tools"
 Write-Output ""
 
-
 # -------------------------------------------------------------------------------
 # guru
 # -------------------------------------------------------------------------------
@@ -201,12 +228,6 @@ go install golang.org/x/tools/cmd/gopls
 showError $? "BUILD gopls"
 log "DONE" "BUILD gopls"
 echo ""
-
-# -------------------------------------------------------------------------------
-
-# -------------------------------------------------------------------------------
-# https://github.com/Microsoft/vscode-go/blob/master/src/goInstallTools.ts
-# -------------------------------------------------------------------------------
 
 # -------------------------------------------------------------------------------
 # gocode
