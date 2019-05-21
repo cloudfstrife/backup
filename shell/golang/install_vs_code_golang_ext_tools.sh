@@ -57,7 +57,7 @@ REMOVE="/..."
 #  参数1 上一命令返回状态，一般为$?
 #  参数2 任务说明
 # -------------------------------------------------------------------------------
-function showError(){
+showError(){
     if [ $1 != "0" ]; then
         log "ERROR" "$2"
         exit 1
@@ -69,7 +69,7 @@ function showError(){
 #  参数1 日志级别
 #  参数2 日志内容
 # -------------------------------------------------------------------------------
-function log(){
+log(){
     printf "%s [ %-7s ] : %s\n" "$(date '+%F %T')" "$1" "$2"
 }
 
@@ -77,7 +77,7 @@ function log(){
 # 克隆（拉取）git 项目指定分支到指定目录
 # github https://github.com/golang/tools.git "$GOPATH/src/golang.org/x/tools" master
 # -------------------------------------------------------------------------------
-function github(){
+github(){
     if [ -z "$3" ] ; then
         showError "1" "github function invoked without enough parameter"
     fi
@@ -114,7 +114,7 @@ function github(){
 # -------------------------------------------------------------------------------
 # 检查Go环境变量设置是否正确
 # -------------------------------------------------------------------------------
-function check_go_env(){
+check_go_env(){
     if [ -z "$GOROOT" ] ;then
         showError "1" "Environment variables [GOROOT] NOT set"
     fi
@@ -132,7 +132,7 @@ function check_go_env(){
 # 删除 $GOPATH/bin 目录和 $GOPATH/bin 目录下的文件
 # 清理 go build的缓存
 # -------------------------------------------------------------------------------
-function clean_go_env(){
+clean_go_env(){
     rm -rf $GOPATH/bin/*
     rm -rf $GOPATH/pkg/*
     go clean 
@@ -147,7 +147,7 @@ function clean_go_env(){
 # 示例：
 # build https://github.com/mdempsky/gocode.git gocode github.com/mdempsky/gocode
 # -------------------------------------------------------------------------------
-function build(){
+build(){
     if [ -z "$3" ] ; then
         showError "1" "build function invoked without enough parameter"
     fi
