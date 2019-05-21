@@ -30,15 +30,13 @@ function Log(){
     printf "%s [ %-7s ] : %s\n" "$(date '+%F %T')" "$1" "$2"
 }
 
-
-
 Fetch(){
-	if [ ! -d ${SOURCE_FOLDER} ]; then 
-		mkdir -p ${SOURCE_FOLDER}
+    if [ ! -d ${SOURCE_FOLDER} ]; then 
+        mkdir -p ${SOURCE_FOLDER}
         git clone ${SOURCE_REPOSITORY} ${SOURCE_FOLDER}
         cd ${SOURCE_FOLDER}
         git submodule update --init --recursive
-	else
+    else
         cd ${SOURCE_FOLDER}
         git pull origin 
     fi
@@ -47,12 +45,12 @@ Fetch(){
 Compile(){
     rm -rf ${SOURCE_FOLDER}/public 
     cd ${SOURCE_FOLDER}
-    hugo
+    ${HUGO_BIN}
 }
 
 Deploy(){
     if [ ! -d ${DEPLOY_FOLDER} ]; then 
-		mkdir -p ${DEPLOY_FOLDER}
+        mkdir -p ${DEPLOY_FOLDER}
     fi
     rm -rf ${DEPLOY_FOLDER}/*
     cp -r ${SOURCE_FOLDER}/public/* ${DEPLOY_FOLDER}
@@ -60,11 +58,8 @@ Deploy(){
 
 Main(){
     Fetch
-    ShowError $? "Fetch "
     Compile
-    ShowError $? "Compile "
     Deploy
-    ShowError $? "Deploy "
 }
 
 Main
