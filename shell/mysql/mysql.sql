@@ -12,7 +12,7 @@ SELECT
 FROM
     `information_schema`.`tables`
 WHERE
-    `table_schema` IN ('demo');
+    `table_schema` IN ('database_name');
 
 #############################################################################################################################
 ####                                             查询删除MySQL所有外键的语句                                             ####
@@ -27,7 +27,7 @@ SELECT
 FROM
     `information_schema`.`key_column_usage`
 WHERE
-    `table_schema` = 'demo'
+    `table_schema` = 'database_name'
         AND `referenced_table_name` IS NOT NULL;
 
 ##############################################################################################################################
@@ -60,7 +60,7 @@ SELECT
 FROM
     information_schema.TABLES
 WHERE
-    TABLE_SCHEMA = 'demo';
+    TABLE_SCHEMA = 'database_name';
 
 ##############################################################################################################################
 ####                                                  生成Java实体类属性                                                  ####
@@ -126,8 +126,8 @@ SELECT
 FROM
     information_schema.`COLUMNS`
 WHERE
-    TABLE_SCHEMA = 'bigdataactiveplatform'
-AND TABLE_NAME = 'as_auth_user'; 
+    TABLE_SCHEMA = 'database_name'
+AND TABLE_NAME = 'table_name'; 
 
 ##############################################################################################################################
 ####                                                      查询库大小                                                      ####
@@ -137,4 +137,4 @@ SELECT
 FROM
     information_schema.tables
 WHERE
-    table_schema = 'bigdataactiveplatform';
+    table_schema = 'database_name';
