@@ -181,6 +181,9 @@ Write-Output ""
 github https://github.com/golang/sync.git "$env:GOPATH/src/golang.org/x/sync" master
 Write-Output ""
 
+github https://github.com/golang/mod.git "$env:GOPATH/src/golang.org/x/mod" master
+Write-Output ""
+
 log "DONE" "FETCH golang build-in tools"
 Write-Output ""
 
@@ -357,7 +360,9 @@ echo ""
 # staticcheck
 # -------------------------------------------------------------------------------
 log "START" "BUILD staticcheck"
-github https://github.com/kisielk/gotool.git  "$env:GOPATH/src/github.com/kisielk/gotool" master
+github https://github.com/kisielk/gotool.git "$env:GOPATH/src/github.com/kisielk/gotool" master
+github https://github.com/google/renameio.git "$env:GOPATH/src/github.com/google/renameio" master
+github https://github.com/rogpeppe/go-internal.git "$env:GOPATH/src/github.com/rogpeppe/go-internal" master
 github https://github.com/dominikh/go-tools.git "$env:GOPATH/src/honnef.co/go/tools" master
 go install honnef.co/go/tools/...
 showError $? "BUILD staticcheck"
