@@ -270,6 +270,7 @@ echo ""
 # gopls
 # -------------------------------------------------------------------------------
 log "START" "BUILD gopls"
+github https://github.com/golang/xerrors.git "$GOPATH/src/golang.org/x/xerrors" master
 go install golang.org/x/tools/cmd/gopls
 showError $? "BUILD gopls"
 log "DONE" "BUILD gopls"
