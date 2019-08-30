@@ -33,12 +33,12 @@ function Log(){
 Fetch(){
     if [ ! -d ${SOURCE_FOLDER} ]; then 
         mkdir -p ${SOURCE_FOLDER}
-        git clone ${SOURCE_REPOSITORY} ${SOURCE_FOLDER}
+        git clone ${SOURCE_REPOSITORY} ${SOURCE_FOLDER} 2>&1
         cd ${SOURCE_FOLDER}
-        git submodule update --init --recursive
+        git submodule update --init --recursive 2>&1
     else
         cd ${SOURCE_FOLDER}
-        git pull origin 
+        git pull origin 2>&1 
     fi
 }
 
