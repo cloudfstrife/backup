@@ -1,6 +1,6 @@
 ## install_vs_code_golang_ext_tools 
 
-安装 VS Code Go语言插件所需要的工具。适用于Go语言版本小于`1.13`。
+安装 VS Code Go语言插件所需要的工具。适用于Go语言版本大于等于`1.13`。
 
 ```
 # *******************************************************************************
@@ -34,19 +34,19 @@
 # 	'go-symbols': {
 # 		name: 'go-symbols',
 # 		importPath: 'github.com/acroca/go-symbols',
-# 		isImportant: true,
+# 		isImportant: false,
 # 		description: 'Go to symbol in workspace',
 # 	},
 # 	'guru': {
 # 		name: 'guru',
 # 		importPath: 'golang.org/x/tools/cmd/guru',
-# 		isImportant: true,
+# 		isImportant: false,
 # 		description: 'Find all references and Go to implementation of symbols',
 # 	},
 # 	'gorename': {
 # 		name: 'gorename',
 # 		importPath: 'golang.org/x/tools/cmd/gorename',
-# 		isImportant: true,
+# 		isImportant: false,
 # 		description: 'Rename symbols',
 # 	},
 # 	'gomodifytags': {
@@ -141,14 +141,14 @@
 # 	},
 # 	'gopls': {
 # 		name: 'gopls',
-# 		importPath: 'golang.org/x/tools/cmd/gopls',
+# 		importPath: 'golang.org/x/tools/gopls',
 # 		isImportant: false,
 # 		description: 'Language Server from Google',
 # 	},
 # 	'dlv': {
 # 		name: 'dlv',
 # 		importPath: 'github.com/go-delve/delve/cmd/dlv',
-# 		isImportant: true,
+# 		isImportant: false,
 # 		description: 'Debugging',
 # 	},
 # 	'fillstruct': {

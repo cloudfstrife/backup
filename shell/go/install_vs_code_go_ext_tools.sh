@@ -71,6 +71,7 @@ github_checkout(){
     fi
 
     log "INFO" "START PULL $1"
+    git checkout -- .
     git checkout -q $3
     showError $? "Switch to $3 branch"
     git pull -q $GIT_ALICE_NAME $3
@@ -80,7 +81,9 @@ github_checkout(){
 
 # -------------------------------------------------------------------------------
 # 克隆（拉取）git 项目指定分支到指定目录
-# github https://github.com/golang/tools.git "$GOPATH/src/golang.org/x/tools" master
+#  参数1 git地址
+#  参数2 项目所在目录
+#  参数3 分支
 # -------------------------------------------------------------------------------
 github(){
     if [ -z "$3" ] ; then
@@ -94,9 +97,15 @@ github(){
     fi
 }
 
+# -------------------------------------------------------------------------------
+# 构建Go程序
+#  参数1 程序源代码所在目录
+#  参数2 程序名称
+#  参数3 go build 指令参数
+# -------------------------------------------------------------------------------
 gobuild(){
 	if [ ! -d "$1" ]; then
-		showError "1" "Folder [$GOPATH/src/$1] Not exists"
+		showError "1" "Folder [ $1 ] Not exists"
 	fi
 	
 	log "INFO" "START BUILD $2"
@@ -131,7 +140,6 @@ prepare(){
 	
     rm -rf $GOPATH/bin/*
 	go clean -modcache
-    rm -rf $GOPATH/pkg/*
 }
 
 # -------------------------------------------------------------------------------

@@ -21,7 +21,7 @@ staticcheck,github.com/dominikh/go-tools,honnef.co/go/tools,honnef.co/go/tools/.
 golangci-lint,github.com/golangci/golangci-lint,github.com/golangci/golangci-lint,github.com/golangci/golangci-lint/cmd/golangci-lint
 revive,github.com/mgechev/revive,github.com/mgechev/revive,github.com/mgechev/revive
 go-langserver,github.com/sourcegraph/go-langserver,github.com/sourcegraph/go-langserver,github.com/sourcegraph/go-langserver
-gopls,github.com/golang/tools,golang.org/x/tools,golang.org/x/tools/cmd/gopls
+gopls,github.com/golang/tools,golang.org/x/tools,golang.org/x/tools/gopls
 dlv,github.com/go-delve/delve,github.com/go-delve/delve,github.com/go-delve/delve/cmd/dlv
 fillstruct,github.com/davidrjenni/reftools,github.com/davidrjenni/reftools,github.com/davidrjenni/reftools/cmd/fillstruct
 godoctor,github.com/godoctor/godoctor,github.com/godoctor/godoctor,github.com/godoctor/godoctor
