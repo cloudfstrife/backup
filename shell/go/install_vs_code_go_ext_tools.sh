@@ -104,29 +104,28 @@ github(){
 #  参数3 go build 指令参数
 # -------------------------------------------------------------------------------
 gobuild(){
-	if [ ! -d "$1" ]; then
-		showError "1" "Folder [ $1 ] Not exists"
-	fi
-	
-	log "INFO" "START BUILD $2"
-	cd "$1"
-	
-	# 计算字符串长度，计算'-gomod'字符的偏移值与长度
+    if [ ! -d "$1" ]; then
+        showError "1" "Folder [ $1 ] Not exists"
+    fi
+    
+    log "INFO" "START BUILD $2"
+    cd "$1"
+    
+    # 计算字符串长度，计算'-gomod'字符的偏移值与长度
     LENGTH=$(echo "$2" | wc -m)
     OFFSET=$(expr $LENGTH - 1 - 6)
     MAX=$(expr $LENGTH - 1)
-	
-	if [ ${2:OFFSET:MAX} = "-gomod"  ] ; then
+    
+    if [ ${2:OFFSET:MAX} = "-gomod"  ] ; then
         go build -o $GOPATH/bin/$2 $3
         showError $? "BUILD $2"
     else
         go install $3
         showError $? "BUILD $2"
     fi
-	
-	
-	showError $? "BUILD $2"
-	log "INFO" "DONE BUILD $2"
+    
+    showError $? "BUILD $2"
+    log "INFO" "DONE BUILD $2"
 }
 
 # -------------------------------------------------------------------------------
@@ -147,43 +146,43 @@ prepare(){
     if [ -z "$GOPATH" ] ;then
         showError "1" "Environment variables [GOPATH] NOT set"
     fi
-	
-	# 
-	go env -w GOPROXY=https://goproxy.cn,direct
-	go env -w GOSUMDB=sum.golang.google.cn
-	
+    
+    # 
+    go env -w GOPROXY=https://goproxy.cn,direct
+    go env -w GOSUMDB=sum.golang.google.cn
+    
     rm -rf $GOPATH/bin/*
-	go clean -modcache
+    go clean -modcache
 }
 
 # -------------------------------------------------------------------------------
 # 重置 go module proxy 设置
 # -------------------------------------------------------------------------------
 ending(){
-	go env -u GOPROXY
-	go env -u GOSUMDB
+    go env -u GOPROXY
+    go env -u GOSUMDB
 }
 
 main(){
-	line=0
-	for l in `cat $TOOLS_LIST_FILE_NAME` 
-	do
-		line=`expr $line + 1`
-		if [ "$line" == "1" ]; then
-			continue
-		fi
-		
-		tool_name=`echo $l | awk -F ',' '{print $1}'`
-		github=`echo $l | awk -F ',' '{print $2}'`
-		folder=`echo $l | awk -F ',' '{print $3}'`
-		build=`echo $l | awk -F ',' '{print $4}'`
-		target_folder="$GOPATH/src/$folder"
-		
-		printf "\u001b[31m-------------------------------  %s  -------------------------------\u001b[0m\n" "$tool_name"
-		
-		github "$GIT_PREFIX$github$GIT_POSTFIX" "$target_folder" "master"
-		gobuild "$target_folder" "$tool_name" "$build"
-	done
+    line=0
+    for l in `cat $TOOLS_LIST_FILE_NAME` 
+    do
+        line=`expr $line + 1`
+        if [ "$line" == "1" ]; then
+            continue
+        fi
+        
+        tool_name=`echo $l | awk -F ',' '{print $1}'`
+        github=`echo $l | awk -F ',' '{print $2}'`
+        folder=`echo $l | awk -F ',' '{print $3}'`
+        build=`echo $l | awk -F ',' '{print $4}'`
+        target_folder="$GOPATH/src/$folder"
+        
+        printf "\u001b[31m-------------------------------  %s  -------------------------------\u001b[0m\n" "$tool_name"
+        
+        github "$GIT_PREFIX$github$GIT_POSTFIX" "$target_folder" "master"
+        gobuild "$target_folder" "$tool_name" "$build"
+    done
 }
 
 # -------------------------------------------------------------------------------

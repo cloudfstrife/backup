@@ -41,14 +41,14 @@ function log($status,$context){
 #  参数3 分支
 # -------------------------------------------------------------------------------
 function github_clone($url,$target_path,$branch){
-	log "INFO " "START CLONE $url"
-	$null = New-Item -path $target_path -type directory -force
-	git clone -q $url $target_path
-	showError $? "CLONE $url"
-	Set-Location $target_path
-	git checkout -q $branch
-	showError $? "CHECKOUT $url TO $branch branch"
-	log "INFO " "DONE CLONE $url"
+    log "INFO " "START CLONE $url"
+    $null = New-Item -path $target_path -type directory -force
+    git clone -q $url $target_path
+    showError $? "CLONE $url"
+    Set-Location $target_path
+    git checkout -q $branch
+    showError $? "CHECKOUT $url TO $branch branch"
+    log "INFO " "DONE CLONE $url"
 }
 
 # -------------------------------------------------------------------------------
@@ -58,24 +58,24 @@ function github_clone($url,$target_path,$branch){
 #  参数3 分支
 # -------------------------------------------------------------------------------
 function github_checkout($url,$target_path,$branch){
-	Set-Location $target_path
-	if ( ! ( Test-Path "$target_path\.git") ){
-		showError $false "target folder is not a git project folder"
-	}
-	
-	$GIT_ALICE_NAME=(cmd /c git remote show)
-	$GIT_REMOTE_URL=(cmd /c git remote get-url --all $GIT_ALICE_NAME)
-	
-	if ( ! $url -eq $GIT_REMOTE_URL ){
-		showError $false "git remote url do not match"
-	}
-	log "INFO " "START PULL $url"
-	git checkout -- .
-	git checkout -q $brench
-	showError $? "Switch to $brench branch"
-	git pull -q $GIT_ALICE_NAME $brench
-	showError $? "Pulling code from remote git branch $brench"
-	log "INFO " "DONE PULL $url"
+    Set-Location $target_path
+    if ( ! ( Test-Path "$target_path\.git") ){
+        showError $false "target folder is not a git project folder"
+    }
+    
+    $GIT_ALICE_NAME=(cmd /c git remote show)
+    $GIT_REMOTE_URL=(cmd /c git remote get-url --all $GIT_ALICE_NAME)
+    
+    if ( ! $url -eq $GIT_REMOTE_URL ){
+        showError $false "git remote url do not match"
+    }
+    log "INFO " "START PULL $url"
+    git checkout -- .
+    git checkout -q $brench
+    showError $? "Switch to $brench branch"
+    git pull -q $GIT_ALICE_NAME $brench
+    showError $? "Pulling code from remote git branch $brench"
+    log "INFO " "DONE PULL $url"
 }
 
 # -------------------------------------------------------------------------------
@@ -89,9 +89,9 @@ function github($url,$target_path,$branch){
         showError $false "github function invoked without enough parameter"
     }
     if ( Test-Path $target_path ){
-		github_checkout $url $target_path $branch
+        github_checkout $url $target_path $branch
     }else{
-		github_clone $url $target_path $branch
+        github_clone $url $target_path $branch
     }
 }
 
@@ -102,22 +102,22 @@ function github($url,$target_path,$branch){
 #  参数3 go build 路径
 # -------------------------------------------------------------------------------
 function gobuild($source_folder,$app_name,$build_path){
-	if ( ! (Test-Path $source_folder ) ){
-		showError $false "Folder [ $source_folder ] Not exists"
-	}
-	
-	log "INFO " "START BUILD $app_name"
-	Set-Location $source_folder
-	
-	if ( $app_name.Contains("-gomod") ){
+    if ( ! (Test-Path $source_folder ) ){
+        showError $false "Folder [ $source_folder ] Not exists"
+    }
+    
+    log "INFO " "START BUILD $app_name"
+    Set-Location $source_folder
+    
+    if ( $app_name.Contains("-gomod") ){
         go build -o "$env:GOPATH\bin\$app_name.exe"
         showError $? "BUILD $app_name"
     }else{
         go install $build_path
         showError $? "BUILD $app_name"
     }
-	
-	log "INFO " "DONE BUILD $app_name"
+    
+    log "INFO " "DONE BUILD $app_name"
 }
 
 
@@ -129,46 +129,46 @@ function gobuild($source_folder,$app_name,$build_path){
 # -------------------------------------------------------------------------------
 function prepare(){
     if ( "$env:GOROOT" -eq "" ){
-		showError $false "Environment variables [GOROOT] NOT set"
-	}
-	
-	if ( "$env:GOPATH" -eq "" ){
-		showError $false "Environment variables [GOPATH] NOT set"
-	}
-	
-	# 
-	go env -w GOPROXY=https://goproxy.io,direct
-	go env -w GOSUMDB=sum.golang.google.cn
-	
+        showError $false "Environment variables [GOROOT] NOT set"
+    }
+    
+    if ( "$env:GOPATH" -eq "" ){
+        showError $false "Environment variables [GOPATH] NOT set"
+    }
+    
+    # 
+    go env -w GOPROXY=https://goproxy.io,direct
+    go env -w GOSUMDB=sum.golang.google.cn
+    
     if ( Test-Path $env:GOPATH/bin  ){
-		Remove-Item $env:GOPATH/bin/* -recurse
-	}
-	
-	go clean -modcache
+        Remove-Item $env:GOPATH/bin/* -recurse
+    }
+    
+    go clean -modcache
 }
 
 # -------------------------------------------------------------------------------
 # 重置 go module proxy 设置
 # -------------------------------------------------------------------------------
 function ending(){
-	go env -u GOPROXY
-	go env -u GOSUMDB
+    go env -u GOPROXY
+    go env -u GOSUMDB
 }
 
 function main(){
-	Import-Csv all_tools_information.Csv | ForEach-Object {
-		$name=$_.name
-		$github=$_.github
-		$folder=$_.folder
-		$build=$_.build
-		
-		$target_folder=$folder.Replace("/","\")
-		
-		Write-Output "-------------------------------  $name  -------------------------------"
-		
-		github "$GIT_PREFIX$github$GIT_POSTFIX" "$env:GOPATH\src\$target_folder" "master"
-		gobuild "$env:GOPATH\src\$target_folder" "$name" "$build"
-	}
+    Import-Csv all_tools_information.Csv | ForEach-Object {
+        $name=$_.name
+        $github=$_.github
+        $folder=$_.folder
+        $build=$_.build
+        
+        $target_folder=$folder.Replace("/","\")
+        
+        Write-Output "-------------------------------  $name  -------------------------------"
+        
+        github "$GIT_PREFIX$github$GIT_POSTFIX" "$env:GOPATH\src\$target_folder" "master"
+        gobuild "$env:GOPATH\src\$target_folder" "$name" "$build"
+    }
 }
 
 # -------------------------------------------------------------------------------
