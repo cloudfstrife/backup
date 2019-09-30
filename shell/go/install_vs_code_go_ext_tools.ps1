@@ -107,9 +107,16 @@ function gobuild($source_folder,$app_name,$build_path){
 	}
 	
 	log "INFO " "START BUILD $app_name"
-	Set-Location  $source_folder
-	go install $build_path
-	showError $? "BUILD $app_name"
+	Set-Location $source_folder
+	
+	if ( $app_name.Contains("-gomod") ){
+        go build -o "$env:GOPATH\bin\$app_name.exe"
+        showError $? "BUILD $app_name"
+    }else{
+        go install $build_path
+        showError $? "BUILD $app_name"
+    }
+	
 	log "INFO " "DONE BUILD $app_name"
 }
 
@@ -157,7 +164,7 @@ function main(){
 		
 		$target_folder=$folder.Replace("/","\")
 		
-		Write-Output "                              $name                              "
+		Write-Output "-------------------------------  $name  -------------------------------"
 		
 		github "$GIT_PREFIX$github$GIT_POSTFIX" "$env:GOPATH\src\$target_folder" "master"
 		gobuild "$env:GOPATH\src\$target_folder" "$name" "$build"

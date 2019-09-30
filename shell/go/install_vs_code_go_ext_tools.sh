@@ -110,7 +110,21 @@ gobuild(){
 	
 	log "INFO" "START BUILD $2"
 	cd "$1"
-	go install $3
+	
+	# 计算字符串长度，计算'-gomod'字符的偏移值与长度
+    LENGTH=$(echo "$2" | wc -m)
+    OFFSET=$(expr $LENGTH - 1 - 6)
+    MAX=$(expr $LENGTH - 1)
+	
+	if [ ${2:OFFSET:MAX} = "-gomod"  ] ; then
+        go build -o $GOPATH/bin/$2 $3
+        showError $? "BUILD $2"
+    else
+        go install $3
+        showError $? "BUILD $2"
+    fi
+	
+	
 	showError $? "BUILD $2"
 	log "INFO" "DONE BUILD $2"
 }
@@ -165,7 +179,7 @@ main(){
 		build=`echo $l | awk -F ',' '{print $4}'`
 		target_folder="$GOPATH/src/$folder"
 		
-		printf "\n\u001b[31m                            %s                            \u001b[0m\n" "$tool_name"
+		printf "\u001b[31m-------------------------------  %s  -------------------------------\u001b[0m\n" "$tool_name"
 		
 		github "$GIT_PREFIX$github$GIT_POSTFIX" "$target_folder" "master"
 		gobuild "$target_folder" "$tool_name" "$build"
