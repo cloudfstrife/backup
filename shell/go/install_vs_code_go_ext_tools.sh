@@ -31,7 +31,7 @@ log(){
 # -------------------------------------------------------------------------------
 showError(){
     if [ $1 != "0" ]; then
-        log "ERROR" "$2"
+        printf "\u001b[31m %s [ %-7s ] : %s \u001b[0m\n" "$(date '+%F %T')" "ERROR" "$2"
         exit 1
     fi 
 }
@@ -101,7 +101,7 @@ github(){
 # 构建Go程序
 #  参数1 程序源代码所在目录
 #  参数2 程序名称
-#  参数3 go build 指令参数
+#  参数3 go install 指令参数
 # -------------------------------------------------------------------------------
 gobuild(){
     if [ ! -d "$1" ]; then
@@ -117,7 +117,7 @@ gobuild(){
     MAX=$(expr $LENGTH - 1)
     
     if [ ${2:OFFSET:MAX} = "-gomod"  ] ; then
-        go build -o $GOPATH/bin/$2 $3
+        go build -o $GOPATH/bin/$2
         showError $? "BUILD $2"
     else
         go install $3
@@ -176,12 +176,16 @@ main(){
         github=`echo $l | awk -F ',' '{print $2}'`
         folder=`echo $l | awk -F ',' '{print $3}'`
         build=`echo $l | awk -F ',' '{print $4}'`
-        target_folder="$GOPATH/src/$folder"
+		install_cmd=`echo $l | awk -F ',' '{print $5}'`
         
-        printf "\u001b[31m-------------------------------  %s  -------------------------------\u001b[0m\n" "$tool_name"
+		target_folder="$GOPATH/src/$folder"
         
+		printf "########################################################################\n"
+        printf "##                               %s\n" "$tool_name"
+        printf "########################################################################\n"
+		
         github "$GIT_PREFIX$github$GIT_POSTFIX" "$target_folder" "master"
-        gobuild "$target_folder" "$tool_name" "$build"
+        gobuild "$GOPATH/src/$build" "$tool_name" "$install_cmd"
     done
 }
 

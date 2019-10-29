@@ -99,9 +99,9 @@ function github($url,$target_path,$branch){
 # 构建Go程序
 #  参数1 程序源代码所在目录
 #  参数2 程序名称
-#  参数3 go build 路径
+#  参数3 go install 
 # -------------------------------------------------------------------------------
-function gobuild($source_folder,$app_name,$build_path){
+function gobuild($source_folder,$app_name,$install_cmd){
     if ( ! (Test-Path $source_folder ) ){
         showError $false "Folder [ $source_folder ] Not exists"
     }
@@ -113,7 +113,7 @@ function gobuild($source_folder,$app_name,$build_path){
         go build -o "$env:GOPATH\bin\$app_name.exe"
         showError $? "BUILD $app_name"
     }else{
-        go install $build_path
+        go install $install_cmd
         showError $? "BUILD $app_name"
     }
     
@@ -160,14 +160,17 @@ function main(){
         $name=$_.name
         $github=$_.github
         $folder=$_.folder
-        $build=$_.build
+        $build_folder=$_.build_folder
+		$install_cmd=$_.install_cmd
         
         $target_folder=$folder.Replace("/","\")
         
-        Write-Output "-------------------------------  $name  -------------------------------"
-        
-        github "$GIT_PREFIX$github$GIT_POSTFIX" "$env:GOPATH\src\$target_folder" "master"
-        gobuild "$env:GOPATH\src\$target_folder" "$name" "$build"
+		Write-Output "######################################################################"
+        Write-Output "##                          $name"
+		Write-Output "######################################################################"
+		
+		github "$GIT_PREFIX$github$GIT_POSTFIX" "$env:GOPATH\src\$target_folder" "master"
+        gobuild "$env:GOPATH\src\$build_folder" "$name" "$install_cmd"
     }
 }
 
