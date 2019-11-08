@@ -51,7 +51,7 @@ xclip -sel clip < ~/.ssh/id_rsa.pub
 
 ## vim 配置
 
-``
+```
 sudo cp /etc/vim/vimrc /etc/vim/vimrc.backup
 
 sudo chmod 777  /etc/vim/vimrc
@@ -158,5 +158,6 @@ sudo chmod 644 /etc/profile
 
 ## 其它
 
+```
 cp /usr/share/backgrounds/gnome/adwaita-night.jpg ~/图片/
-
+```
