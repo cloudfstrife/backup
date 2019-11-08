@@ -1,39 +1,57 @@
+# debian
+
 ## 基本组件安装
 
+### KDE
+
+```
 sudo apt-get clean
 sudo apt-get update
-sudo apt-get install curl wget apt-transport-https 
+sudo apt-get install curl wget apt-transport-https vim xclip tree \
+rar zip unrar unzip p7zip net-tools \
+git 
+```
 
-## VS Code 源
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-sudo apt-get clean
-sudo apt-get update
-sudo apt-get install code
+### Gnome
 
-## 安装软件
+```
 sudo apt-get install gedit-source-code-browser-plugin rhythmbox-plugin-alternative-toolbar vim xclip tree \
 gcc gcc-doc g++ make make-doc gdb gdb-doc clang clang-format clang-tidy \
 irssi irssi-scripts irssi-plugin-xmpp irssi-plugin-otr \
 breeze-cursor-theme breeze-icon-theme numix-gtk-theme \
 rar zip unrar unzip p7zip net-tools \
 codelite codelite-plugins blender blender-ogrexml-1.9 deluge deluge-torrent aria2 git retext liferea
+```
 
+## Visual Studio Code
+
+```
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+sudo apt-get clean
+sudo apt-get update
+sudo apt-get install code
+```
 
 ## git 配置
-git config --global user.name "git_name"
-git config --global user.email "git_email"
-ssh-keygen -t rsa -b 4096 -C "git_email"
+
+```
+export git_name=YOU_GIT_NAME
+export git_email=YOU_GIT_EMAIL
+git config --global user.name "$git_name"
+git config --global user.email "$git_email"
+ssh-keygen -t rsa -b 4096 -C "$git_email"
 
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 
 xclip -sel clip < ~/.ssh/id_rsa.pub
-
+```
 
 ## vim 配置
 
+``
 sudo cp /etc/vim/vimrc /etc/vim/vimrc.backup
 
 sudo chmod 777  /etc/vim/vimrc
@@ -121,9 +139,11 @@ sudo echo -e "" >> /etc/vim/vimrc
 sudo echo -e "\" 不要用空格代替制表符" >> /etc/vim/vimrc
 sudo echo -e "set noexpandtab" >> /etc/vim/vimrc
 sudo chmod 644 /etc/vim/vimrc
+```
 
 ## golang
 
+```
 sudo cp /etc/profile /etc/profile.backup
 
 sudo chmod 777 /etc/profile
@@ -132,51 +152,11 @@ sudo echo -e "##                                           golang" >> /etc/profi
 sudo echo -e "################################################################################################" >> /etc/profile
 sudo echo -e "export GOROOT=/usr/local/go" >> /etc/profile
 sudo echo -e "export PATH=\$GOROOT/bin:\$PATH" >> /etc/profile
-sudo echo -e "export GOPATH=/rc/golang/env" >> /etc/profile
+sudo echo -e "export GOPATH=/source/golang/env" >> /etc/profile
 sudo chmod 644 /etc/profile
+```
 
 ## 其它
 
 cp /usr/share/backgrounds/gnome/adwaita-night.jpg ~/图片/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
