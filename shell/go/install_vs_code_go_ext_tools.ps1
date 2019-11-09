@@ -145,6 +145,22 @@ function prepare(){
     }
     
     go clean -modcache
+    
+    github "https://github.com/golang/build.git" "$env:GOPATH\src\golang.org\x\build" master
+    github "https://github.com/golang/crypto.git" "$env:GOPATH\src\golang.org\x\crypto" master
+    github "https://github.com/golang/exp.git" "$env:GOPATH\src\golang.org\x\exp" master
+    github "https://github.com/golang/image.git" "$env:GOPATH\src\golang.org\x\image" master
+    github "https://github.com/golang/lint.git" "$env:GOPATH\src\golang.org\x\lint" master
+    github "https://github.com/golang/mobile.git" "$env:GOPATH\src\golang.org\x\mobile" master
+    github "https://github.com/golang/net.git" "$env:GOPATH\src\golang.org\x\net" master
+    github "https://github.com/golang/oauth2.git" "$env:GOPATH\src\golang.org\x\oauth2" master
+    github "https://github.com/golang/perf.git" "$env:GOPATH\src\golang.org\x\perf" master
+    github "https://github.com/golang/review.git" "$env:GOPATH\src\golang.org\x\review" master
+    github "https://github.com/golang/sync.git" "$env:GOPATH\src\golang.org\x\sync" master
+    github "https://github.com/golang/sys.git" "$env:GOPATH\src\golang.org\x\sys" master
+    github "https://github.com/golang/text.git" "$env:GOPATH\src\golang.org\x\text" master
+    github "https://github.com/golang/tools.git" "$env:GOPATH\src\golang.org\x\tools" master
+    github "https://github.com/golang/time.git" "$env:GOPATH\src\golang.org\x\time" master
 }
 
 # -------------------------------------------------------------------------------

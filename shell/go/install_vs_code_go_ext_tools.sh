@@ -153,6 +153,23 @@ prepare(){
     
     rm -rf $GOPATH/bin/*
     go clean -modcache
+
+    github "$GIT_PREFIX""github.com/golang/build""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/build" master
+    github "$GIT_PREFIX""github.com/golang/crypto""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/crypto" master
+    github "$GIT_PREFIX""github.com/golang/exp""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/exp" master
+    github "$GIT_PREFIX""github.com/golang/image""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/image" master
+    github "$GIT_PREFIX""github.com/golang/lint""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/lint" master
+    github "$GIT_PREFIX""github.com/golang/mobile""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/mobile" master
+    github "$GIT_PREFIX""github.com/golang/net""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/net" master
+    github "$GIT_PREFIX""github.com/golang/oauth2""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/oauth2" master
+    github "$GIT_PREFIX""github.com/golang/perf""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/perf" master
+    github "$GIT_PREFIX""github.com/golang/review""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/review" master
+    github "$GIT_PREFIX""github.com/golang/sync""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/sync" master
+    github "$GIT_PREFIX""github.com/golang/sys""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/sys" master
+    github "$GIT_PREFIX""github.com/golang/text""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/text" master
+    github "$GIT_PREFIX""github.com/golang/tools""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/tools" master
+    github "$GIT_PREFIX""github.com/golang/time""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/time" master
+
 }
 
 # -------------------------------------------------------------------------------
