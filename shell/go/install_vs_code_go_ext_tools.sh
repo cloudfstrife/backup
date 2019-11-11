@@ -3,7 +3,7 @@
 # -------------------------------------------------------------------------------
 # TOOLS_LIST_FILE_NAME 包含工具列表的CSV文件
 # -------------------------------------------------------------------------------
-TOOLS_LIST_FILE_NAME=./all_tools_information.csv
+TOOLS_LIST_FILE_NAME=`pwd`/all_tools_information.csv
 
 # -------------------------------------------------------------------------------
 # git项目URL后缀
@@ -169,7 +169,7 @@ prepare(){
     github "$GIT_PREFIX""github.com/golang/text""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/text" master
     github "$GIT_PREFIX""github.com/golang/tools""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/tools" master
     github "$GIT_PREFIX""github.com/golang/time""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/time" master
-
+    github "$GIT_PREFIX""github.com/skratchdot/open-golang""$GIT_POSTFIX"  "$GOPATH/src/github.com/skratchdot/open-golang" master
 }
 
 # -------------------------------------------------------------------------------

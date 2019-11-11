@@ -7,6 +7,9 @@
 #  
 #  ******************************************************************************
 
+$pwd = Split-Path -Parent $MyInvocation.MyCommand.Definition
+$TOOLS_LIST_FILE_NAME="$pwd\all_tools_information.csv"
+
 # git项目URL后缀
 $GIT_POSTFIX=".git"
 # git项目URL后缀
@@ -161,6 +164,8 @@ function prepare(){
     github "https://github.com/golang/text.git" "$env:GOPATH\src\golang.org\x\text" master
     github "https://github.com/golang/tools.git" "$env:GOPATH\src\golang.org\x\tools" master
     github "https://github.com/golang/time.git" "$env:GOPATH\src\golang.org\x\time" master
+	github "https://github.com/skratchdot/open-golang.git" "$env:GOPATH\src\github.com\skratchdot\open-golang" master
+	
 }
 
 # -------------------------------------------------------------------------------
@@ -172,7 +177,7 @@ function ending(){
 }
 
 function main(){
-    Import-Csv all_tools_information.Csv | ForEach-Object {
+    Import-Csv $TOOLS_LIST_FILE_NAME | ForEach-Object {
         $name=$_.name
         $github=$_.github
         $folder=$_.folder
