@@ -9,7 +9,9 @@ sudo apt-get clean
 sudo apt-get update
 sudo apt-get install curl wget apt-transport-https vim xclip tree \
 rar zip unrar unzip p7zip net-tools \
-git 
+git clang clang-format clang-tidy clang-tools make make-doc gdb gdb-doc cmake cmake-doc \
+irssi irssi-plugin-otr irssi-plugin-xmpp irssi-scripts blender deluge deluge-torrent aria2 \
+fonts-wqy-microhei fonts-wqy-zenhei fonts-noto-cjk fonts-noto-cjk-extra
 ```
 
 ### Gnome
@@ -20,7 +22,7 @@ gcc gcc-doc g++ make make-doc gdb gdb-doc clang clang-format clang-tidy \
 irssi irssi-scripts irssi-plugin-xmpp irssi-plugin-otr \
 breeze-cursor-theme breeze-icon-theme numix-gtk-theme \
 rar zip unrar unzip p7zip net-tools \
-codelite codelite-plugins blender blender-ogrexml-1.9 deluge deluge-torrent aria2 git retext liferea
+codelite codelite-plugins blender deluge deluge-torrent aria2 git retext liferea
 ```
 
 ## Visual Studio Code
@@ -159,5 +161,13 @@ sudo chmod 644 /etc/profile
 ## 其它
 
 ```
+
+## 9.0 夜间风格壁纸
+
 cp /usr/share/backgrounds/gnome/adwaita-night.jpg ~/图片/
+
+## KDE 禁用 kaccessibleapp 自动启动
+
+sudo mv /usr/share/dbus-1/services/org.kde.kaccessible.service /usr/share/dbus-1/services/org.kde.kaccessible.service.backup
+
 ```
