@@ -10,7 +10,11 @@ sudo apt-get update
 sudo apt-get install curl wget apt-transport-https vim xclip tree rar zip unrar unzip p7zip net-tools \
 git clang clang-format clang-tidy clang-tools make make-doc gdb gdb-doc cmake cmake-doc \
 irssi irssi-plugin-otr irssi-plugin-xmpp irssi-scripts blender deluge deluge-torrent aria2 \
-fonts-wqy-microhei fonts-wqy-zenhei fonts-noto-cjk fonts-noto-cjk-extra
+chromium chromium-l10n chromium-sandbox  chromium-ublock-origin \
+fonts-wqy-microhei fonts-wqy-zenhei fonts-noto-cjk fonts-noto-cjk-extra \
+sddm-theme-breeze sddm-theme-elarun sddm-theme-maldives sddm-theme-maui sddm-theme-maya \
+sddm-theme-debian-breeze sddm-theme-debian-elarun sddm-theme-debian-maui 
+
 ```
 
 ### Gnome
