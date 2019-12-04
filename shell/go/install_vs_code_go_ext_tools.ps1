@@ -131,6 +131,7 @@ function gobuild($source_folder,$app_name,$install_cmd){
 # 3> 清除$GOPATH/bin 和 go module 缓存
 # -------------------------------------------------------------------------------
 function prepare(){
+    # 检查环境变量
     if ( "$env:GOROOT" -eq "" ){
         showError $false "Environment variables [GOROOT] NOT set"
     }
@@ -139,7 +140,7 @@ function prepare(){
         showError $false "Environment variables [GOPATH] NOT set"
     }
     
-    # 
+    # 设置代理和验证服务器
     go env -w GOPROXY=https://goproxy.io,direct
     go env -w GOSUMDB=sum.golang.google.cn
     
@@ -147,8 +148,10 @@ function prepare(){
         Remove-Item $env:GOPATH/bin/* -recurse
     }
     
+    # 清理模块缓存 
     go clean -modcache
     
+    # 拉取golang.org的库，解决非go module模式的扩展工具的依赖问题
     github "https://github.com/golang/build.git" "$env:GOPATH\src\golang.org\x\build" master
     github "https://github.com/golang/crypto.git" "$env:GOPATH\src\golang.org\x\crypto" master
     github "https://github.com/golang/exp.git" "$env:GOPATH\src\golang.org\x\exp" master

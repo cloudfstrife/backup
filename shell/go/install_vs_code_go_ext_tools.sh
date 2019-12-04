@@ -135,6 +135,7 @@ gobuild(){
 # 3> 清除$GOPATH/bin 和 go module 缓存
 # -------------------------------------------------------------------------------
 prepare(){
+    # 检查环境变量
     if [ -z "$GOROOT" ] ;then
         showError "1" "Environment variables [GOROOT] NOT set"
     fi
@@ -147,13 +148,15 @@ prepare(){
         showError "1" "Environment variables [GOPATH] NOT set"
     fi
     
-    # 
+    # 设置代理和验证服务器
     go env -w GOPROXY=https://goproxy.cn,direct
     go env -w GOSUMDB=sum.golang.google.cn
     
+    # 清理模块缓存 
     rm -rf $GOPATH/bin/*
     go clean -modcache
 
+    # 拉取golang.org的库，解决非go module模式的扩展工具的依赖问题
     github "$GIT_PREFIX""github.com/golang/build""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/build" master
     github "$GIT_PREFIX""github.com/golang/crypto""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/crypto" master
     github "$GIT_PREFIX""github.com/golang/exp""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/exp" master
