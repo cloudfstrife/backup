@@ -154,58 +154,41 @@ go get -u github.com/golang/protobuf/protoc-gen-go
 go get -u -v github.com/fogleman/ln/ln
 ```
 
-### go_mod_replace
+### goproxy
 
 ```
-go mod edit -replace=golang.org/x/build=github.com/golang/build@latest
-go mod edit -replace=golang.org/x/crypto=github.com/golang/crypto@latest
-go mod edit -replace=golang.org/x/exp=github.com/golang/exp@latest
-go mod edit -replace=golang.org/x/image=github.com/golang/image@latest
-go mod edit -replace=golang.org/x/lint=github.com/golang/lint@latest
-go mod edit -replace=golang.org/x/mobile=github.com/golang/mobile@latest
-go mod edit -replace=golang.org/x/net=github.com/golang/net@latest
-go mod edit -replace=golang.org/x/oauth2=github.com/golang/oauth2@latest
-go mod edit -replace=golang.org/x/perf=github.com/golang/perf@latest
-go mod edit -replace=golang.org/x/review=github.com/golang/review@latest
-go mod edit -replace=golang.org/x/sync=github.com/golang/sync@latest
-go mod edit -replace=golang.org/x/sys=github.com/golang/sys@latest
-go mod edit -replace=golang.org/x/text=github.com/golang/text@latest
-go mod edit -replace=golang.org/x/tools=github.com/golang/tools@latest
-go mod edit -replace=golang.org/x/time=github.com/golang/time@latest
-
-go mod edit -replace=google.golang.org/api=github.com/googleapis/google-api-go-client@latest
-go mod edit -replace=google.golang.org/appengine=github.com/golang/appengine@latest
-go mod edit -replace=google.golang.org/genproto=github.com/google/go-genproto@latest
-go mod edit -replace=google.golang.org/grpc=github.com/grpc/grpc-go@latest
-
-go mod edit -replace=cloud.google.com/go=github.com/googleapis/google-cloud-go@latest
+go env -w GOPROXY=https://goproxy.io,direct
+go env -w GOPROXY=https://goproxy.cn,direct
 ```
 
----
+### reset go env
 
 ```
-replace golang.org/x/build => github.com/golang/build latest
-replace golang.org/x/crypto => github.com/golang/crypto latest
-replace golang.org/x/exp => github.com/golang/exp latest
-replace golang.org/x/image => github.com/golang/image latest
-replace golang.org/x/lint => github.com/golang/lint latest
-replace golang.org/x/mobile => github.com/golang/mobile latest
-replace golang.org/x/net => github.com/golang/net latest
-replace golang.org/x/oauth2 => github.com/golang/oauth2 latest
-replace golang.org/x/perf => github.com/golang/perf latest
-replace golang.org/x/review => github.com/golang/review latest
-replace golang.org/x/sync => github.com/golang/sync latest
-replace golang.org/x/sys => github.com/golang/sys latest
-replace golang.org/x/text => github.com/golang/text latest
-replace golang.org/x/tools => github.com/golang/tools latest
-replace golang.org/x/time => github.com/golang/time latest
-
-replace google.golang.org/api => github.com/googleapis/google-api-go-client latest
-replace google.golang.org/appengine => github.com/golang/appengine latest
-replace google.golang.org/genproto => github.com/google/go-genproto latest
-replace google.golang.org/grpc => github.com/grpc/grpc-go latest
-
-replace cloud.google.com/go => github.com/googleapis/google-cloud-go latest
+go env -u GO111MODULE
+go env -u GOARCH
+go env -u GOBIN
+go env -u GOCACHE
+go env -u GOFLAGS
+go env -u GONOPROXY
+go env -u GONOSUMDB
+go env -u GOOS
+go env -u GOPATH
+go env -u GOPRIVATE
+go env -u GOPROXY
+go env -u GOROOT
+go env -u GOSUMDB
+go env -u GOTMPDIR
+go env -u GCCGO
+go env -u AR
+go env -u CC
+go env -u CXX
+go env -u CGO_ENABLED
+go env -u CGO_CFLAGS
+go env -u CGO_CPPFLAGS
+go env -u CGO_CXXFLAGS
+go env -u CGO_FFLAGS
+go env -u CGO_LDFLAGS
+go env -u PKG_CONFIG
 ```
 
 ----
