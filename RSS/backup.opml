@@ -7,6 +7,16 @@
   <outline id="779151116" isOpen="false" text="Belief">
    <outline title="Raw Thought (from Aaron Swartz)" id="1388051935" description="&amp;quot;capture what you experience and sort it out; only in this way can you hope to use it to guide and test your reflection, and in the process shape yourself as an intellectual craftsman&amp;quot; -- C. Wright Mills" version="RSS" maxArticleAge="60" useCustomFetchInterval="false" maxArticleNumber="1000" xmlUrl="http://www.aaronsw.com/weblog/index.xml" archiveMode="globalDefault" htmlUrl="http://www.aaronsw.com/weblog/" fetchInterval="30" text="Raw Thought (from Aaron Swartz)" type="rss"/>
   </outline>
+  <outline id="58778087" isOpen="false" text="Tech">
+   <outline xmlUrl="http://coolshell.cn/feed" title="酷 壳 – CoolShell" useCustomFetchInterval="false" archiveMode="globalDefault" htmlUrl="https://coolshell.cn" maxArticleNumber="1000" type="rss" id="1010566254" version="RSS" text="酷 壳 – CoolShell" fetchInterval="30" description="享受编程和技术所带来的快乐 - Coding Your Ambition" maxArticleAge="60"/>
+   <outline title="阮一峰的网络日志" id="1489449610" description="Ruan YiFeng&amp;apos;s Blog" version="RSS" maxArticleAge="60" useCustomFetchInterval="false" maxArticleNumber="1000" xmlUrl="http://www.ruanyifeng.com/blog/atom.xml" archiveMode="globalDefault" htmlUrl="http://www.ruanyifeng.com/blog/" fetchInterval="30" text="阮一峰的网络日志" type="rss"/>
+   <outline title="美团技术团队" id="459804784" description="美团技术团队最近更新内容。" version="RSS" maxArticleAge="60" useCustomFetchInterval="false" maxArticleNumber="1000" xmlUrl="https://tech.meituan.com/feed" archiveMode="globalDefault" htmlUrl="https://tech.meituan.com/feed/" fetchInterval="30" text="美团技术团队" type="rss"/>
+  </outline>
+  <outline id="993236719" isOpen="false" text="Golang">
+   <outline title="鸟窝" id="1708994436" description="大道至简 Simplicity is the ultimate form of sophistication" version="RSS" maxArticleAge="60" useCustomFetchInterval="false" maxArticleNumber="1000" xmlUrl="https://colobu.com/atom.xml" archiveMode="globalDefault" htmlUrl="https://colobu.com/" fetchInterval="30" text="鸟窝" type="rss"/>
+   <outline title="小惡魔 – 電腦技術 – 工作筆記 – AppleBOY" id="2062494400" description="介紹一堆美食日記，生活日記，電腦筆記" version="RSS" maxArticleAge="60" useCustomFetchInterval="false" maxArticleNumber="1000" xmlUrl="https://blog.wu-boy.com/feed/" archiveMode="globalDefault" htmlUrl="https://blog.wu-boy.com" fetchInterval="30" text="小惡魔 – 電腦技術 – 工作筆記 – AppleBOY" type="rss"/>
+   <outline title="Dave Cheney" id="1000027830" description="The acme of foolishness" version="RSS" maxArticleAge="60" useCustomFetchInterval="false" maxArticleNumber="1000" xmlUrl="https://dave.cheney.net/feed/atom" archiveMode="globalDefault" htmlUrl="https://dave.cheney.net" fetchInterval="30" text="Dave Cheney" type="rss"/>
+  </outline>
   <outline id="1165167985" isOpen="false" text="Matrix">
    <outline title="360 核心安全技术博客" id="919408801" description="分享奇虎360公司的技术，与安全的互联网共同成长。" version="RSS" maxArticleAge="60" useCustomFetchInterval="false" maxArticleNumber="1000" xmlUrl="http://blogs.360.cn/rss.html" archiveMode="globalDefault" htmlUrl="http://blogs.360.cn" fetchInterval="30" text="360 核心安全技术博客" type="rss"/>
    <outline id="885184169" isOpen="false" text="嘶吼">
@@ -23,15 +33,6 @@
     <outline title="技术" id="1622183056" description="" version="RSS" maxArticleAge="60" useCustomFetchInterval="false" maxArticleNumber="1000" xmlUrl="http://www.4hou.com/technology/feed" archiveMode="globalDefault" htmlUrl="https://www.4hou.com" fetchInterval="30" text="技术" type="rss"/>
     <outline title="Web安全" id="452578358" description="" version="RSS" maxArticleAge="60" useCustomFetchInterval="false" maxArticleNumber="1000" xmlUrl="http://www.4hou.com/category/web/feed" archiveMode="globalDefault" htmlUrl="https://www.4hou.com" fetchInterval="30" text="Web安全" type="rss"/>
    </outline>
-  </outline>
-  <outline id="58778087" isOpen="false" text="Tech">
-   <outline title="阮一峰的网络日志" id="1489449610" description="Ruan YiFeng&amp;apos;s Blog" version="RSS" maxArticleAge="60" useCustomFetchInterval="false" maxArticleNumber="1000" xmlUrl="http://www.ruanyifeng.com/blog/atom.xml" archiveMode="globalDefault" htmlUrl="http://www.ruanyifeng.com/blog/" fetchInterval="30" text="阮一峰的网络日志" type="rss"/>
-   <outline title="美团技术团队" id="459804784" description="美团技术团队最近更新内容。" version="RSS" maxArticleAge="60" useCustomFetchInterval="false" maxArticleNumber="1000" xmlUrl="https://tech.meituan.com/feed" archiveMode="globalDefault" htmlUrl="https://tech.meituan.com/feed/" fetchInterval="30" text="美团技术团队" type="rss"/>
-  </outline>
-  <outline id="993236719" isOpen="false" text="Golang">
-   <outline title="鸟窝" id="1708994436" description="大道至简 Simplicity is the ultimate form of sophistication" version="RSS" maxArticleAge="60" useCustomFetchInterval="false" maxArticleNumber="1000" xmlUrl="https://colobu.com/atom.xml" archiveMode="globalDefault" htmlUrl="https://colobu.com/" fetchInterval="30" text="鸟窝" type="rss"/>
-   <outline title="小惡魔 – 電腦技術 – 工作筆記 – AppleBOY" id="2062494400" description="介紹一堆美食日記，生活日記，電腦筆記" version="RSS" maxArticleAge="60" useCustomFetchInterval="false" maxArticleNumber="1000" xmlUrl="https://blog.wu-boy.com/feed/" archiveMode="globalDefault" htmlUrl="https://blog.wu-boy.com" fetchInterval="30" text="小惡魔 – 電腦技術 – 工作筆記 – AppleBOY" type="rss"/>
-   <outline title="Dave Cheney" id="1000027830" description="The acme of foolishness" version="RSS" maxArticleAge="60" useCustomFetchInterval="false" maxArticleNumber="1000" xmlUrl="https://dave.cheney.net/feed/atom" archiveMode="globalDefault" htmlUrl="https://dave.cheney.net" fetchInterval="30" text="Dave Cheney" type="rss"/>
   </outline>
  </body>
 </opml>
