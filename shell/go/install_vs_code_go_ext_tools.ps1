@@ -154,10 +154,12 @@ function prepare(){
     # 拉取golang.org的库，解决非go module模式的扩展工具的依赖问题
     github "https://github.com/golang/build.git" "$env:GOPATH\src\golang.org\x\build" master
     github "https://github.com/golang/crypto.git" "$env:GOPATH\src\golang.org\x\crypto" master
+    github "https://github.com/golang/xerrors.git" "$env:GOPATH\src\golang.org\x\xerrors" master
     github "https://github.com/golang/exp.git" "$env:GOPATH\src\golang.org\x\exp" master
     github "https://github.com/golang/image.git" "$env:GOPATH\src\golang.org\x\image" master
     github "https://github.com/golang/lint.git" "$env:GOPATH\src\golang.org\x\lint" master
     github "https://github.com/golang/mobile.git" "$env:GOPATH\src\golang.org\x\mobile" master
+    github "https://github.com/golang/mod.git" "$env:GOPATH\src\golang.org\x\mod" master
     github "https://github.com/golang/net.git" "$env:GOPATH\src\golang.org\x\net" master
     github "https://github.com/golang/oauth2.git" "$env:GOPATH\src\golang.org\x\oauth2" master
     github "https://github.com/golang/perf.git" "$env:GOPATH\src\golang.org\x\perf" master

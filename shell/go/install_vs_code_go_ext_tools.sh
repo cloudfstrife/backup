@@ -159,10 +159,12 @@ prepare(){
     # 拉取golang.org的库，解决非go module模式的扩展工具的依赖问题
     github "$GIT_PREFIX""github.com/golang/build""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/build" master
     github "$GIT_PREFIX""github.com/golang/crypto""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/crypto" master
+    github "$GIT_PREFIX""github.com/golang/xerrors""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/xerrors" master
     github "$GIT_PREFIX""github.com/golang/exp""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/exp" master
     github "$GIT_PREFIX""github.com/golang/image""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/image" master
     github "$GIT_PREFIX""github.com/golang/lint""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/lint" master
     github "$GIT_PREFIX""github.com/golang/mobile""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/mobile" master
+    github "$GIT_PREFIX""github.com/golang/mod""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/mod" master
     github "$GIT_PREFIX""github.com/golang/net""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/net" master
     github "$GIT_PREFIX""github.com/golang/oauth2""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/oauth2" master
     github "$GIT_PREFIX""github.com/golang/perf""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/perf" master
