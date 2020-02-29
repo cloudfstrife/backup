@@ -16,6 +16,11 @@ GIT_PREFIX="https://"
 GIT_POSTFIX=".git"
 
 # -------------------------------------------------------------------------------
+# 安装目录
+# -------------------------------------------------------------------------------
+INSTALL_PATH=""
+
+# -------------------------------------------------------------------------------
 # 日志输出
 # 参数1 日志级别
 # 参数2 日志内容
@@ -98,7 +103,7 @@ github(){
 }
 
 # -------------------------------------------------------------------------------
-# 构建Go程序
+#  构建Go程序
 #  参数1 程序源代码所在目录
 #  参数2 程序名称
 #  参数3 go install 指令参数
@@ -117,7 +122,7 @@ gobuild(){
     MAX=$(expr $LENGTH - 1)
     
     if [ ${2:OFFSET:MAX} = "-gomod"  ] ; then
-        go build -o $GOPATH/bin/$2
+        go build -o $INSTALL_PATH/bin/$2
         showError $? "BUILD $2"
     else
         go install $3
@@ -127,6 +132,7 @@ gobuild(){
     showError $? "BUILD $2"
     log "INFO" "DONE BUILD $2"
 }
+
 
 # -------------------------------------------------------------------------------
 # 准备
@@ -147,34 +153,42 @@ prepare(){
     if [ -z "$GOPATH" ] ;then
         showError "1" "Environment variables [GOPATH] NOT set"
     fi
-    
+	
+	# 初始化安装目录
+	INSTALL_PATH=${GOPATH%:*}
+	
+	printf "########################################################################\n"
+	printf "## GOPATH : $GOPATH \n"
+	printf "## Install To $INSTALL_PATH \n"
+	printf "########################################################################\n"
+	
     # 设置代理和验证服务器
     go env -w GOPROXY=https://goproxy.cn,direct
     go env -w GOSUMDB=sum.golang.google.cn
     
     # 清理模块缓存 
-    rm -rf $GOPATH/bin/*
+    rm -rf $INSTALL_PATH/bin/*
     go clean -modcache
 
     # 拉取golang.org的库，解决非go module模式的扩展工具的依赖问题
-    github "$GIT_PREFIX""github.com/golang/build""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/build" master
-    github "$GIT_PREFIX""github.com/golang/crypto""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/crypto" master
-    github "$GIT_PREFIX""github.com/golang/xerrors""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/xerrors" master
-    github "$GIT_PREFIX""github.com/golang/exp""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/exp" master
-    github "$GIT_PREFIX""github.com/golang/image""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/image" master
-    github "$GIT_PREFIX""github.com/golang/lint""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/lint" master
-    github "$GIT_PREFIX""github.com/golang/mobile""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/mobile" master
-    github "$GIT_PREFIX""github.com/golang/mod""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/mod" master
-    github "$GIT_PREFIX""github.com/golang/net""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/net" master
-    github "$GIT_PREFIX""github.com/golang/oauth2""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/oauth2" master
-    github "$GIT_PREFIX""github.com/golang/perf""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/perf" master
-    github "$GIT_PREFIX""github.com/golang/review""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/review" master
-    github "$GIT_PREFIX""github.com/golang/sync""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/sync" master
-    github "$GIT_PREFIX""github.com/golang/sys""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/sys" master
-    github "$GIT_PREFIX""github.com/golang/text""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/text" master
-    github "$GIT_PREFIX""github.com/golang/tools""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/tools" master
-    github "$GIT_PREFIX""github.com/golang/time""$GIT_POSTFIX" "$GOPATH/src/golang.org/x/time" master
-    github "$GIT_PREFIX""github.com/skratchdot/open-golang""$GIT_POSTFIX"  "$GOPATH/src/github.com/skratchdot/open-golang" master
+    github "$GIT_PREFIX""github.com/golang/build""$GIT_POSTFIX" "$INSTALL_PATH/src/golang.org/x/build" master
+    github "$GIT_PREFIX""github.com/golang/crypto""$GIT_POSTFIX" "$INSTALL_PATH/src/golang.org/x/crypto" master
+    github "$GIT_PREFIX""github.com/golang/xerrors""$GIT_POSTFIX" "$INSTALL_PATH/src/golang.org/x/xerrors" master
+    github "$GIT_PREFIX""github.com/golang/exp""$GIT_POSTFIX" "$INSTALL_PATH/src/golang.org/x/exp" master
+    github "$GIT_PREFIX""github.com/golang/image""$GIT_POSTFIX" "$INSTALL_PATH/src/golang.org/x/image" master
+    github "$GIT_PREFIX""github.com/golang/lint""$GIT_POSTFIX" "$INSTALL_PATH/src/golang.org/x/lint" master
+    github "$GIT_PREFIX""github.com/golang/mobile""$GIT_POSTFIX" "$INSTALL_PATH/src/golang.org/x/mobile" master
+    github "$GIT_PREFIX""github.com/golang/mod""$GIT_POSTFIX" "$INSTALL_PATH/src/golang.org/x/mod" master
+    github "$GIT_PREFIX""github.com/golang/net""$GIT_POSTFIX" "$INSTALL_PATH/src/golang.org/x/net" master
+    github "$GIT_PREFIX""github.com/golang/oauth2""$GIT_POSTFIX" "$INSTALL_PATH/src/golang.org/x/oauth2" master
+    github "$GIT_PREFIX""github.com/golang/perf""$GIT_POSTFIX" "$INSTALL_PATH/src/golang.org/x/perf" master
+    github "$GIT_PREFIX""github.com/golang/review""$GIT_POSTFIX" "$INSTALL_PATH/src/golang.org/x/review" master
+    github "$GIT_PREFIX""github.com/golang/sync""$GIT_POSTFIX" "$INSTALL_PATH/src/golang.org/x/sync" master
+    github "$GIT_PREFIX""github.com/golang/sys""$GIT_POSTFIX" "$INSTALL_PATH/src/golang.org/x/sys" master
+    github "$GIT_PREFIX""github.com/golang/text""$GIT_POSTFIX" "$INSTALL_PATH/src/golang.org/x/text" master
+    github "$GIT_PREFIX""github.com/golang/tools""$GIT_POSTFIX" "$INSTALL_PATH/src/golang.org/x/tools" master
+    github "$GIT_PREFIX""github.com/golang/time""$GIT_POSTFIX" "$INSTALL_PATH/src/golang.org/x/time" master
+    github "$GIT_PREFIX""github.com/skratchdot/open-golang""$GIT_POSTFIX"  "$INSTALL_PATH/src/github.com/skratchdot/open-golang" master
 }
 
 # -------------------------------------------------------------------------------
@@ -200,14 +214,14 @@ main(){
         build=`echo $l | awk -F ',' '{print $4}'`
 		install_cmd=`echo $l | awk -F ',' '{print $5}'`
         
-		target_folder="$GOPATH/src/$folder"
+		target_folder="$INSTALL_PATH/src/$folder"
         
 		printf "########################################################################\n"
         printf "##                               %s\n" "$tool_name"
         printf "########################################################################\n"
 		
         github "$GIT_PREFIX$github$GIT_POSTFIX" "$target_folder" "master"
-        gobuild "$GOPATH/src/$build" "$tool_name" "$install_cmd"
+        gobuild "$INSTALL_PATH/src/$build" "$tool_name" "$install_cmd"
     done
 }
 
