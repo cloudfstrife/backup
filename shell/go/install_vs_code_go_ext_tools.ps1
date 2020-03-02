@@ -1,20 +1,27 @@
 #  ******************************************************************************
-#  windows 7+ 安装 Visual Studio Code 的go语言插件扩展工具的shell
+#  windows 7+ 安装 Visual Studio Code 的go语言插件扩展工具的 Power Shell
 #  
 #  ****    脚本前置条件    ****
-#  * 安装好Go环境
+#  * 安装好Go环境 version >= 1.13
 #  * 安装好git
-#  
+#  * 配置GOPATH
 #  ******************************************************************************
 
 $pwd = Split-Path -Parent $MyInvocation.MyCommand.Definition
+# -------------------------------------------------------------------------------
+# TOOLS_LIST_FILE_NAME 包含工具列表的CSV文件
+# -------------------------------------------------------------------------------
 $TOOLS_LIST_FILE_NAME="$pwd\all_tools_information.csv"
 
+# -------------------------------------------------------------------------------
 # git项目URL后缀
+# -------------------------------------------------------------------------------
 $GIT_POSTFIX=".git"
-# git项目URL后缀
-$GIT_PREFIX="https://"
 
+# -------------------------------------------------------------------------------
+# git项目URL后缀
+# -------------------------------------------------------------------------------
+$GIT_PREFIX="https://"
 
 # -------------------------------------------------------------------------------
 #  处理错误
@@ -62,9 +69,6 @@ function github_clone($url,$target_path,$branch){
 # -------------------------------------------------------------------------------
 function github_checkout($url,$target_path,$branch){
     Set-Location $target_path
-    if ( ! ( Test-Path "$target_path\.git") ){
-        showError $false "target folder is not a git project folder"
-    }
     
     $GIT_ALICE_NAME=(cmd /c git remote show)
     $GIT_REMOTE_URL=(cmd /c git remote get-url --all $GIT_ALICE_NAME)
@@ -113,7 +117,7 @@ function gobuild($source_folder,$app_name,$install_cmd){
     Set-Location $source_folder
     
     if ( $app_name.Contains("-gomod") ){
-        go build -o "$env:GOPATH\bin\$app_name.exe"
+        go build -o "$INSTALL_PATH\bin\$app_name.exe"
         showError $? "BUILD $app_name"
     }else{
         go install $install_cmd
@@ -140,36 +144,50 @@ function prepare(){
         showError $false "Environment variables [GOPATH] NOT set"
     }
     
+	# -------------------------------------------------------------------------------
+	# 安装目录
+	# -------------------------------------------------------------------------------
+	if ( $env:GOPATH.IndexOf(';') > 0 ){
+		$INSTALL_PATH=$env:GOPATH.Substring(0,$env:GOPATH.IndexOf(';'))
+	}else{
+		$INSTALL_PATH=$env:GOPATH
+	}
+	
     # 设置代理和验证服务器
     go env -w GOPROXY=https://goproxy.io,direct
     go env -w GOSUMDB=sum.golang.google.cn
-    
-    if ( Test-Path $env:GOPATH/bin  ){
-        Remove-Item $env:GOPATH/bin/* -recurse
+	
+	Write-Output "######################################################################"
+	Write-Output "## GOPATH : $env:GOPATH"
+	Write-Output "## Install in to : $INSTALL_PATH"
+	Write-Output "######################################################################"
+	
+    if ( Test-Path $INSTALL_PATH/bin  ){
+        Remove-Item $INSTALL_PATH/bin/* -recurse
     }
     
     # 清理模块缓存 
     go clean -modcache
     
     # 拉取golang.org的库，解决非go module模式的扩展工具的依赖问题
-    github "https://github.com/golang/build.git" "$env:GOPATH\src\golang.org\x\build" master
-    github "https://github.com/golang/crypto.git" "$env:GOPATH\src\golang.org\x\crypto" master
-    github "https://github.com/golang/xerrors.git" "$env:GOPATH\src\golang.org\x\xerrors" master
-    github "https://github.com/golang/exp.git" "$env:GOPATH\src\golang.org\x\exp" master
-    github "https://github.com/golang/image.git" "$env:GOPATH\src\golang.org\x\image" master
-    github "https://github.com/golang/lint.git" "$env:GOPATH\src\golang.org\x\lint" master
-    github "https://github.com/golang/mobile.git" "$env:GOPATH\src\golang.org\x\mobile" master
-    github "https://github.com/golang/mod.git" "$env:GOPATH\src\golang.org\x\mod" master
-    github "https://github.com/golang/net.git" "$env:GOPATH\src\golang.org\x\net" master
-    github "https://github.com/golang/oauth2.git" "$env:GOPATH\src\golang.org\x\oauth2" master
-    github "https://github.com/golang/perf.git" "$env:GOPATH\src\golang.org\x\perf" master
-    github "https://github.com/golang/review.git" "$env:GOPATH\src\golang.org\x\review" master
-    github "https://github.com/golang/sync.git" "$env:GOPATH\src\golang.org\x\sync" master
-    github "https://github.com/golang/sys.git" "$env:GOPATH\src\golang.org\x\sys" master
-    github "https://github.com/golang/text.git" "$env:GOPATH\src\golang.org\x\text" master
-    github "https://github.com/golang/tools.git" "$env:GOPATH\src\golang.org\x\tools" master
-    github "https://github.com/golang/time.git" "$env:GOPATH\src\golang.org\x\time" master
-	github "https://github.com/skratchdot/open-golang.git" "$env:GOPATH\src\github.com\skratchdot\open-golang" master
+    github $GIT_PREFIX"github.com/golang/build"$GIT_POSTFIX "$INSTALL_PATH\src\golang.org\x\build" master
+    github $GIT_PREFIX"github.com/golang/crypto"$GIT_POSTFIX "$INSTALL_PATH\src\golang.org\x\crypto" master
+    github $GIT_PREFIX"github.com/golang/xerrors"$GIT_POSTFIX "$INSTALL_PATH\src\golang.org\x\xerrors" master
+    github $GIT_PREFIX"github.com/golang/exp"$GIT_POSTFIX "$INSTALL_PATH\src\golang.org\x\exp" master
+    github $GIT_PREFIX"github.com/golang/image"$GIT_POSTFIX "$INSTALL_PATH\src\golang.org\x\image" master
+    github $GIT_PREFIX"github.com/golang/lint"$GIT_POSTFIX "$INSTALL_PATH\src\golang.org\x\lint" master
+    github $GIT_PREFIX"github.com/golang/mobile"$GIT_POSTFIX "$INSTALL_PATH\src\golang.org\x\mobile" master
+    github $GIT_PREFIX"github.com/golang/mod"$GIT_POSTFIX "$INSTALL_PATH\src\golang.org\x\mod" master
+    github $GIT_PREFIX"github.com/golang/net"$GIT_POSTFIX "$INSTALL_PATH\src\golang.org\x\net" master
+    github $GIT_PREFIX"github.com/golang/oauth2"$GIT_POSTFIX "$INSTALL_PATH\src\golang.org\x\oauth2" master
+    github $GIT_PREFIX"github.com/golang/perf"$GIT_POSTFIX "$INSTALL_PATH\src\golang.org\x\perf" master
+    github $GIT_PREFIX"github.com/golang/review"$GIT_POSTFIX "$INSTALL_PATH\src\golang.org\x\review" master
+    github $GIT_PREFIX"github.com/golang/sync"$GIT_POSTFIX "$INSTALL_PATH\src\golang.org\x\sync" master
+    github $GIT_PREFIX"github.com/golang/sys"$GIT_POSTFIX "$INSTALL_PATH\src\golang.org\x\sys" master
+    github $GIT_PREFIX"github.com/golang/text"$GIT_POSTFIX "$INSTALL_PATH\src\golang.org\x\text" master
+    github $GIT_PREFIX"github.com/golang/tools"$GIT_POSTFIX "$INSTALL_PATH\src\golang.org\x\tools" master
+    github $GIT_PREFIX"github.com/golang/time"$GIT_POSTFIX "$INSTALL_PATH\src\golang.org\x\time" master
+	github $GIT_PREFIX"github.com/skratchdot/open-golang"$GIT_POSTFIX "$INSTALL_PATH\src\github.com\skratchdot\open-golang" master
 	
 }
 
@@ -182,6 +200,15 @@ function ending(){
 }
 
 function main(){
+	# -------------------------------------------------------------------------------
+	# 安装目录
+	# -------------------------------------------------------------------------------
+	if ( $env:GOPATH.IndexOf(';') > 0 ){
+		$INSTALL_PATH=$env:GOPATH.Substring(0,$env:GOPATH.IndexOf(';'))
+	}else{
+		$INSTALL_PATH=$env:GOPATH
+	}
+	
     Import-Csv $TOOLS_LIST_FILE_NAME | ForEach-Object {
         $name=$_.name
         $github=$_.github
@@ -195,8 +222,8 @@ function main(){
         Write-Output "##                          $name"
 		Write-Output "######################################################################"
 		
-		github "$GIT_PREFIX$github$GIT_POSTFIX" "$env:GOPATH\src\$target_folder" "master"
-        gobuild "$env:GOPATH\src\$build_folder" "$name" "$install_cmd"
+		github "$GIT_PREFIX$github$GIT_POSTFIX" "$INSTALL_PATH\src\$target_folder" "master"
+        gobuild "$INSTALL_PATH\src\$build_folder" "$name" "$install_cmd"
     }
 }
 
