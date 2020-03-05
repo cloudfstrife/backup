@@ -1,33 +1,21 @@
 [ActivityManager][Global Shortcuts]
-switch-to-activity-a34e28a4-5243-4c1e-875b-a022fedcf5a0=none
-
-[juk][Global Shortcuts]
-back=Ctrl+Alt+Left
-forward=Ctrl+Alt+Right
-forwardAlbum=Ctrl+Alt+Up
-mute=Ctrl+Alt+M
-playPause=Ctrl+Alt+P
-seekBack=Ctrl+Alt+Shift+Left
-seekForward=Ctrl+Alt+Shift+Right
-stop=Ctrl+Alt+S
-volumeDown=Ctrl+Alt+Shift+Down
-volumeUp=Ctrl+Alt+Shift+Up
+switch-to-activity-2db6409b-7a15-469a-b560-d5de99bf80e5=none
 
 [kaccess][Global Shortcuts]
 Toggle Screen Reader On and Off=none
 
-[khotkeys][Global Shortcuts]
+[kcm_touchpad][Global Shortcuts]
 Disable Touchpad=Touchpad Off
 Enable Touchpad=Touchpad On
 Show System Activity=Ctrl+Esc
 Switch to Next Keyboard Layout=none
 Toggle Touchpad=Touchpad Toggle
 display=Display; Meta+P
-{475ceddd-63aa-47b0-82e3-76e17d3c41e9}=Meta+Print
-{70c668e4-1df9-4bd1-9807-03acf75cbc58}=Print
-{9a0bdcb9-78bb-45f1-a7f4-7cc8c454f6c3}=Shift+Print
-{bfa02b39-63ae-467a-ab3a-bb724b4974b9}=Meta+Shift+Print
+{b1a6e837-e7fe-4a58-ba24-7ea35437b49d}=none
+{b3acfbc5-c640-4508-b069-eeb064224fcc}=none
+{cc955f38-b171-4587-8643-603d0a4fe8b5}=none
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=none
+{d830e1d1-e514-446b-a643-ca0d3d3adf9b}=none
 
 [kmix][Global Shortcuts]
 decrease_microphone_volume=Microphone Volume Down
@@ -36,11 +24,6 @@ increase_microphone_volume=Microphone Volume Up
 increase_volume=Volume Up
 mic_mute=Microphone Mute
 mute=Volume Mute
-
-[kopete][Global Shortcuts]
-ReadMessage=Ctrl+Shift+I
-Set_Away_Back=Ctrl+Shift+W
-ShowContactList=Ctrl+Alt+T
 
 [krunner][Global Shortcuts]
 run command=Meta+R; ; Search
@@ -73,7 +56,7 @@ MoveZoomUp=none
 Remove Window From Group=none
 Setup Window Shortcut=none
 Show Desktop=Meta+D
-ShowDesktopGrid=none
+ShowDesktopGrid=Meta+Ctrl+Shift+Return
 Sphere=none
 Suspend Compositing=none
 Switch One Desktop Down=Meta+Ctrl+Down
