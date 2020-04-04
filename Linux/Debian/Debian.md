@@ -157,7 +157,7 @@ sudo echo -e "##                                           golang" >> /etc/profi
 sudo echo -e "################################################################################################" >> /etc/profile
 sudo echo -e "export GOROOT=/usr/local/go" >> /etc/profile
 sudo echo -e "export PATH=\$GOROOT/bin:\$PATH" >> /etc/profile
-sudo echo -e "export GOPATH=/source/golang/env" >> /etc/profile
+sudo echo -e "export GOPATH=/source/go/env" >> /etc/profile
 sudo chmod 644 /etc/profile
 ```
 
