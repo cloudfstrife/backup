@@ -17,8 +17,13 @@ curl wget apt-transport-https vim xclip tree rar zip unrar unzip p7zip net-tools
 
 ```
 sudo apt-get install \
+fonts-inconsolata \
 fonts-wqy-microhei fonts-wqy-zenhei xfonts-wqy \
-fonts-noto-cjk fonts-noto-core fonts-noto-extra fonts-noto-hinted fonts-noto-ui-core fonts-noto-ui-extra fonts-noto-unhinted fonts-noto-cjk-extra fonts-noto-color-emoji \
+fonts-noto-core fonts-noto-extra \
+fonts-noto-ui-core fonts-noto-ui-extra \
+fonts-noto-hinted fonts-noto-unhinted \
+fonts-noto-cjk fonts-noto-cjk-extra \
+fonts-noto-color-emoji \
 fonts-roboto fonts-roboto-hinted fonts-roboto-unhinted fonts-roboto-fontface fonts-roboto-slab \
 fonts-ubuntu-title fonts-ubuntu fonts-ubuntu-console fonts-ubuntu-font-family-console 
 ```
