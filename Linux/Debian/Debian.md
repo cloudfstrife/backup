@@ -1,31 +1,71 @@
-# debian
+# Debian
 
 ## 基本组件安装
+
+```
+sudo apt-get clean
+
+sudo apt-get update
+
+sudo apt-get dist-upgrade
+
+sudo apt-get install \
+curl wget apt-transport-https vim xclip tree rar zip unrar unzip p7zip net-tools 
+```
+
+## 字体
+
+```
+sudo apt-get install \
+fonts-wqy-microhei fonts-wqy-zenhei xfonts-wqy \
+fonts-noto-cjk fonts-noto-core fonts-noto-extra fonts-noto-hinted fonts-noto-ui-core fonts-noto-ui-extra fonts-noto-unhinted fonts-noto-cjk-extra fonts-noto-color-emoji \
+fonts-roboto fonts-roboto-hinted fonts-roboto-unhinted fonts-roboto-fontface fonts-roboto-slab \
+fonts-ubuntu-title fonts-ubuntu fonts-ubuntu-console fonts-ubuntu-font-family-console 
+```
+
+## 常用软件
+
+```
+sudo apt-get install \
+irssi irssi-plugin-otr irssi-plugin-xmpp irssi-scripts \
+blender deluge deluge-torrent aria2 \
+chromium chromium-l10n chromium-sandbox  chromium-ublock-origin \
+```
+
+## 编程
+
+### C语言
+
+```
+sudo apt-get install git clang clang-format clang-tidy clang-tools make make-doc gdb gdb-doc cmake cmake-doc 
+```
+
+### IDE
+
+#### codelite
+
+```
+sudo apt-key adv --fetch-keys http://repos.codelite.org/CodeLite.asc
+sudo apt-add-repository 'deb https://repos.codelite.org/debian/ buster devel'
+sudo apt-get update
+sudo apt-get install codelite
+```
 
 ### KDE
 
 ```
-sudo apt-get clean
-sudo apt-get update
-sudo apt-get install curl wget apt-transport-https vim xclip tree rar zip unrar unzip p7zip net-tools \
-git clang clang-format clang-tidy clang-tools make make-doc gdb gdb-doc cmake cmake-doc \
-irssi irssi-plugin-otr irssi-plugin-xmpp irssi-scripts blender deluge deluge-torrent aria2 \
-chromium chromium-l10n chromium-sandbox  chromium-ublock-origin \
-fonts-wqy-microhei fonts-wqy-zenhei fonts-noto-cjk fonts-noto-cjk-extra \
+sudo apt-get install \
 sddm-theme-breeze sddm-theme-elarun sddm-theme-maldives sddm-theme-maui sddm-theme-maya \
 sddm-theme-debian-breeze sddm-theme-debian-elarun sddm-theme-debian-maui 
-
 ```
 
 ### Gnome
 
 ```
-sudo apt-get install gedit-source-code-browser-plugin rhythmbox-plugin-alternative-toolbar vim xclip tree \
-gcc gcc-doc g++ make make-doc gdb gdb-doc clang clang-format clang-tidy \
-irssi irssi-scripts irssi-plugin-xmpp irssi-plugin-otr \
+sudo apt-get install \
+gedit-source-code-browser-plugin rhythmbox-plugin-alternative-toolbar \
 breeze-cursor-theme breeze-icon-theme numix-gtk-theme \
-rar zip unrar unzip p7zip net-tools \
-codelite codelite-plugins blender deluge deluge-torrent aria2 git retext liferea
+retext liferea
 ```
 
 ## Visual Studio Code
