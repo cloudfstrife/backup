@@ -144,24 +144,24 @@ function prepare(){
         showError $false "Environment variables [GOPATH] NOT set"
     }
     
-	# -------------------------------------------------------------------------------
-	# 安装目录
-	# -------------------------------------------------------------------------------
-	if ( $env:GOPATH.IndexOf(';') > 0 ){
-		$INSTALL_PATH=$env:GOPATH.Substring(0,$env:GOPATH.IndexOf(';'))
-	}else{
-		$INSTALL_PATH=$env:GOPATH
-	}
-	
+    # -------------------------------------------------------------------------------
+    # 安装目录
+    # -------------------------------------------------------------------------------
+    if ( $env:GOPATH.IndexOf(';') > 0 ){
+        $INSTALL_PATH=$env:GOPATH.Substring(0,$env:GOPATH.IndexOf(';'))
+    }else{
+        $INSTALL_PATH=$env:GOPATH
+    }
+    
     # 设置代理和验证服务器
     go env -w GOPROXY=https://goproxy.io,direct
     go env -w GOSUMDB=sum.golang.google.cn
-	
-	Write-Output "######################################################################"
-	Write-Output "## GOPATH : $env:GOPATH"
-	Write-Output "## Install in to : $INSTALL_PATH"
-	Write-Output "######################################################################"
-	
+    
+    Write-Output "######################################################################"
+    Write-Output "## GOPATH : $env:GOPATH"
+    Write-Output "## Install in to : $INSTALL_PATH"
+    Write-Output "######################################################################"
+    
     if ( Test-Path $INSTALL_PATH/bin  ){
         Remove-Item $INSTALL_PATH/bin/* -recurse
     }
@@ -187,8 +187,8 @@ function prepare(){
     github $GIT_PREFIX"github.com/golang/text"$GIT_POSTFIX "$INSTALL_PATH\src\golang.org\x\text" master
     github $GIT_PREFIX"github.com/golang/tools"$GIT_POSTFIX "$INSTALL_PATH\src\golang.org\x\tools" master
     github $GIT_PREFIX"github.com/golang/time"$GIT_POSTFIX "$INSTALL_PATH\src\golang.org\x\time" master
-	github $GIT_PREFIX"github.com/skratchdot/open-golang"$GIT_POSTFIX "$INSTALL_PATH\src\github.com\skratchdot\open-golang" master
-	
+    github $GIT_PREFIX"github.com/skratchdot/open-golang"$GIT_POSTFIX "$INSTALL_PATH\src\github.com\skratchdot\open-golang" master
+    
 }
 
 # -------------------------------------------------------------------------------
@@ -200,29 +200,29 @@ function ending(){
 }
 
 function main(){
-	# -------------------------------------------------------------------------------
-	# 安装目录
-	# -------------------------------------------------------------------------------
-	if ( $env:GOPATH.IndexOf(';') > 0 ){
-		$INSTALL_PATH=$env:GOPATH.Substring(0,$env:GOPATH.IndexOf(';'))
-	}else{
-		$INSTALL_PATH=$env:GOPATH
-	}
-	
+    # -------------------------------------------------------------------------------
+    # 安装目录
+    # -------------------------------------------------------------------------------
+    if ( $env:GOPATH.IndexOf(';') > 0 ){
+        $INSTALL_PATH=$env:GOPATH.Substring(0,$env:GOPATH.IndexOf(';'))
+    }else{
+        $INSTALL_PATH=$env:GOPATH
+    }
+    
     Import-Csv $TOOLS_LIST_FILE_NAME | ForEach-Object {
         $name=$_.name
         $github=$_.github
         $folder=$_.folder
         $build_folder=$_.build_folder
-		$install_cmd=$_.install_cmd
+        $install_cmd=$_.install_cmd
         
         $target_folder=$folder.Replace("/","\")
         
-		Write-Output "######################################################################"
+        Write-Output "######################################################################"
         Write-Output "##                          $name"
-		Write-Output "######################################################################"
-		
-		github "$GIT_PREFIX$github$GIT_POSTFIX" "$INSTALL_PATH\src\$target_folder" "master"
+        Write-Output "######################################################################"
+        
+        github "$GIT_PREFIX$github$GIT_POSTFIX" "$INSTALL_PATH\src\$target_folder" "master"
         gobuild "$INSTALL_PATH\src\$build_folder" "$name" "$install_cmd"
     }
 }
