@@ -206,6 +206,36 @@ sudo echo -e "export GOPATH=/source/go/env" >> /etc/profile
 sudo chmod 644 /etc/profile
 ```
 
+## irssi
+
+```
+/set nick CloudFStrife
+/set user_name CloudFStrife
+/set real_name Cloud.F.Strife
+
+/RUN scriptassist.pl
+
+/script install awaybar
+/script install nickcolor
+/script install nicklist
+/script install trackbar
+/script install usercount
+
+/script autorun awaybar
+/script autorun nickcolor
+/script autorun nicklist
+/script autorun trackbar
+/script autorun usercount
+
+/server add -auto -network freenode -ssl -ssl_verify chat.freenode.net 7000
+/network add -nick CloudFStrife -user CloudFStrife -realname Cloud.F.Strife -sasl_username -sasl_username CloudFStrife -sasl_password xxxxxx -sasl_mechanism PLAIN freenode
+
+/recode add * utf-8
+/set autolog ON
+
+/save
+```
+
 ## 其它
 
 ```
