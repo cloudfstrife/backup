@@ -220,12 +220,14 @@ sudo chmod 644 /etc/profile
 /script install nicklist
 /script install trackbar
 /script install usercount
+/script install smartfilter
 
 /script autorun awaybar
 /script autorun nickcolor
 /script autorun nicklist
 /script autorun trackbar
 /script autorun usercount
+/script autorun smartfilter
 
 /server add -auto -network freenode -ssl -ssl_verify chat.freenode.net 7000
 /network add -nick CloudFStrife -user CloudFStrife -realname Cloud.F.Strife -sasl_username -sasl_username CloudFStrife -sasl_password xxxxxx -sasl_mechanism PLAIN freenode
