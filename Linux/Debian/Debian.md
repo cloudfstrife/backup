@@ -230,7 +230,7 @@ sudo chmod 644 /etc/profile
 /script autorun smartfilter
 
 /server add -auto -network freenode -ssl -ssl_verify chat.freenode.net 7000
-/network add -nick CloudFStrife -user CloudFStrife -realname Cloud.F.Strife -sasl_username -sasl_username CloudFStrife -sasl_password xxxxxx -sasl_mechanism PLAIN freenode
+/network add -nick xxxxxxxx -user xxxxxxxx -realname xxxxxxxx -sasl_username xxxxxxxx -sasl_password xxxxxxxx -sasl_mechanism PLAIN freenode
 
 /recode add * utf-8
 /set autolog ON
