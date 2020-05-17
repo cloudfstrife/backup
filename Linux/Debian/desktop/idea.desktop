@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=IDEA
+Comment=IntelliJ IDEA
+GenericName=IDEA
+Exec=/opt/idea-IC-201.7223.91/bin/idea.sh %F
+Icon=/opt/idea-IC-201.7223.91/bin/idea.png
+Type=Application
+StartupNotify=false
+Terminal=false
+Categories=Development;IDE;
+Keywords=IDEA;

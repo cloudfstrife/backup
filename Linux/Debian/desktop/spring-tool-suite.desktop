@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Spring Tool Suite 4
+Comment=Spring Tool Suite
+GenericName=Spring IDE
+Exec=/opt/sts-4.6.1.RELEASE/SpringToolSuite4 %F
+Icon=/opt/sts-4.6.1.RELEASE/icon.xpm
+Type=Application
+StartupNotify=false
+Terminal=false
+Categories=Development;IDE;
+Keywords=sts;
