@@ -191,19 +191,35 @@ sudo echo -e "set noexpandtab" >> /etc/vim/vimrc
 sudo chmod 644 /etc/vim/vimrc
 ```
 
-## golang
+## Go
 
 ```
 sudo cp /etc/profile /etc/profile.backup
 
 sudo chmod 777 /etc/profile
-sudo echo -e "\n\n\n################################################################################################" >> /etc/profile
-sudo echo -e "##                                           golang" >> /etc/profile
-sudo echo -e "################################################################################################" >> /etc/profile
-sudo echo -e "export GOROOT=/usr/local/go" >> /etc/profile
-sudo echo -e "export PATH=\$GOROOT/bin:\$PATH" >> /etc/profile
-sudo echo -e "export GOPATH=/source/go/env" >> /etc/profile
+
+sudo cat >> /etc/profile  << EOF
+
+################################################################################################
+##                                              Go                                            ##
+################################################################################################
+export GOROOT=/usr/local/go
+export PATH=\$PATH:\$GOROOT/bin
+
+EOF
+
 sudo chmod 644 /etc/profile
+
+cat >> ~/.profile << EOF
+
+################################################################################################
+##                                              Go                                            ##
+################################################################################################
+export GOPATH=/source/go/env
+export PATH=\$PATH:\$GOPATH/bin
+
+EOF
+
 ```
 
 ## irssi
@@ -236,6 +252,45 @@ sudo chmod 644 /etc/profile
 /set autolog ON
 
 /save
+```
+
+## ZSH
+
+```
+git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.local/share/ohmyzsh
+cp ~/.local/share/ohmyzsh/templates/zshrc.zsh-template ~/.zshrc 
+
+sed -i 's?\$HOME/.oh-my-zsh?$HOME/.local/share/ohmyzsh?' ~/.zshrc
+sed -i 's?ZSH_THEME="robbyrussell"?ZSH_THEME="agnoster"?' ~/.zshrc
+sed -i 's?(git)?(git golang kubectl emoji emoji-clock docker nmap python)?' ~/.zshrc
+```
+
+### ZSH - Go
+
+```
+sudo chmod 777 /etc/zsh/zprofile
+
+sudo cat >> /etc/zsh/zprofile  << EOF
+
+################################################################################################
+##                                              Go                                            ##
+################################################################################################
+export GOROOT=/usr/local/go
+export PATH=\$PATH:\$GOROOT/bin
+
+EOF
+
+sudo chmod 644 /etc/zsh/zprofile
+
+cat >> ~/.zprofile << EOF
+################################################################################################
+##                                              Go                                            ##
+################################################################################################
+export GOPATH=/source/go/env
+export PATH=\$PATH:\$GOPATH/bin
+
+EOF
+
 ```
 
 ## 其它
