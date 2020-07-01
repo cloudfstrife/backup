@@ -1,21 +1,17 @@
 [ActivityManager][Global Shortcuts]
-switch-to-activity-2db6409b-7a15-469a-b560-d5de99bf80e5=none
+switch-to-activity-3102c590-6c4e-40c0-a9a5-10bc14511d80=none
 
 [kaccess][Global Shortcuts]
 Toggle Screen Reader On and Off=none
 
-[kcm_touchpad][Global Shortcuts]
-Disable Touchpad=Touchpad Off
-Enable Touchpad=Touchpad On
-Show System Activity=Ctrl+Esc
-Switch to Next Keyboard Layout=none
-Toggle Touchpad=Touchpad Toggle
-display=Display; Meta+P
-{b1a6e837-e7fe-4a58-ba24-7ea35437b49d}=none
-{b3acfbc5-c640-4508-b069-eeb064224fcc}=none
-{cc955f38-b171-4587-8643-603d0a4fe8b5}=none
+[khotkeys][Global Shortcuts]
+Show System Activity=none
+display=none
+{40ef21a4-14d6-4aef-bd11-b2069e6e5088}=none
+{a962f132-172b-4e1c-acdc-b6dbe645c3de}=none
+{cf5f5d3d-1a20-4768-841b-bae81cb84305}=none
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=none
-{d830e1d1-e514-446b-a643-ca0d3d3adf9b}=none
+{f9b5394e-1f98-40c9-acf7-90a33a678fb4}=none
 
 [kmix][Global Shortcuts]
 decrease_microphone_volume=Microphone Volume Down
@@ -30,15 +26,19 @@ run command=Meta+R; ; Search
 run command on clipboard contents=none
 
 [ksmserver][Global Shortcuts]
+Disable Touchpad=none
+Enable Touchpad=none
 Halt Without Confirmation=none
 Lock Session=Ctrl+Alt+L; Screensaver
 Log Out=none
 Log Out Without Confirmation=none
 Reboot Without Confirmation=none
+Switch to Next Keyboard Layout=none
+Toggle Touchpad=none
 
 [kwin][Global Shortcuts]
 Activate Window Demanding Attention=none
-Cube=Ctrl+Alt+Shift+Return
+Cube=Meta+Ctrl+Shift+Return
 Cylinder=none
 Decrease Opacity=none
 Expose=none
@@ -56,7 +56,7 @@ MoveZoomUp=none
 Remove Window From Group=none
 Setup Window Shortcut=none
 Show Desktop=Meta+D
-ShowDesktopGrid=Meta+Ctrl+Shift+Return
+ShowDesktopGrid=Ctrl+Alt+Shift+Return
 Sphere=none
 Suspend Compositing=none
 Switch One Desktop Down=Meta+Ctrl+Down
@@ -216,6 +216,7 @@ activate task manager entry 7=none
 activate task manager entry 8=none
 activate task manager entry 9=none
 activate widget 3=Alt+F1
+activate widget 8=none
 clear-history=none
 clipboard_action=none
 cycleNextAction=none
