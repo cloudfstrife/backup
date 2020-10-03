@@ -92,6 +92,8 @@ export git_name=YOU_GIT_NAME
 export git_email=YOU_GIT_EMAIL
 git config --global user.name "$git_name"
 git config --global user.email "$git_email"
+git config --global core.quotepath false
+
 ssh-keygen -t rsa -b 4096 -C "$git_email"
 
 eval "$(ssh-agent -s)"
