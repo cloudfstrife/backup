@@ -107,9 +107,7 @@ xclip -sel clip < ~/.ssh/id_rsa.pub
 ```
 sudo cp /etc/vim/vimrc /etc/vim/vimrc.backup
 
-sudo chmod 777 /etc/vim/vimrc
-
-sudo cat >> /etc/vim/vimrc << EOF
+cat << EOF | sudo tee -a /etc/vim/vimrc 
 
 " 设定默认解码
 set fenc=utf-8
@@ -155,7 +153,6 @@ filetype plugin on
 " 为特定文件类型载入相关缩进文件
 filetype indent on
 
-
 " 搜索和匹配
 " 高亮显示匹配的括号
 set showmatch
@@ -196,8 +193,6 @@ set shiftwidth=4
 set noexpandtab
 
 EOF
-
-sudo chmod 644 /etc/vim/vimrc
 ```
 
 ## Go
@@ -205,30 +200,25 @@ sudo chmod 644 /etc/vim/vimrc
 ```
 sudo cp /etc/profile /etc/profile.backup
 
-sudo chmod 777 /etc/profile
+cat << EOF | sudo tee -a /etc/profile
 
-sudo cat >> /etc/profile  << EOF
-
-################################################################################################
-##                                              Go                                            ##
-################################################################################################
+# ----------------------------------------------------------------------------------------------
+# Go
+# ----------------------------------------------------------------------------------------------
 export GOROOT=/usr/local/go
 export PATH=\$PATH:\$GOROOT/bin
 
 EOF
 
-sudo chmod 644 /etc/profile
+cat << EOF | tee -a ~/.profile 
 
-cat >> ~/.profile << EOF
-
-################################################################################################
-##                                              Go                                            ##
-################################################################################################
+# ----------------------------------------------------------------------------------------------
+# Go
+# ----------------------------------------------------------------------------------------------
 export GOPATH=/source/go/env
 export PATH=\$PATH:\$GOPATH/bin
 
 EOF
-
 ```
 
 ## irssi
@@ -282,29 +272,24 @@ chsh -s /bin/zsh
 ```
 sudo cp /etc/zsh/zprofile /etc/zsh/zprofile.backup
 
-sudo chmod 777 /etc/zsh/zprofile
+cat << EOF | sudo tee -a /etc/zsh/zprofile  
 
-sudo cat >> /etc/zsh/zprofile  << EOF
-
-################################################################################################
-##                                              Go                                            ##
-################################################################################################
+# ----------------------------------------------------------------------------------------------
+# Go
+# ----------------------------------------------------------------------------------------------
 export GOROOT=/usr/local/go
 export PATH=\$PATH:\$GOROOT/bin
 
 EOF
 
-sudo chmod 644 /etc/zsh/zprofile
-
-cat >> ~/.zprofile << EOF
-################################################################################################
-##                                              Go                                            ##
-################################################################################################
+cat << EOF | tee -a ~/.zprofile 
+# ----------------------------------------------------------------------------------------------
+# Go
+# ----------------------------------------------------------------------------------------------
 export GOPATH=/source/go/env
 export PATH=\$PATH:\$GOPATH/bin
 
 EOF
-
 ```
 
 ## 其它
@@ -318,5 +303,4 @@ cp /usr/share/backgrounds/gnome/adwaita-night.jpg ~/图片/
 ## KDE 禁用 kaccessibleapp 自动启动
 
 sudo mv /usr/share/dbus-1/services/org.kde.kaccessible.service /usr/share/dbus-1/services/org.kde.kaccessible.service.backup
-
 ```
