@@ -1,5 +1,7 @@
 # Go语言库
 
+- [开发工具](#开发工具)
+	- [goleak](#goleak)
 - [游戏引擎](#游戏引擎)
 	- [G3N](#G3N)
 - [科学计算](#科学计算)
@@ -27,6 +29,14 @@
 	- [ln](#ln)
 	- [go mod -replace](#go_mod_replace)
 
+## 开发工具
+
+### goleak
+
+```
+go get -u go.uber.org/goleak
+```
+
 ## 游戏引擎
 
 ### G3N
@@ -34,9 +44,6 @@
 ```
 # Debian
 sudo apt-get install xorg-dev libgl1-mesa-dev libopenal1 libopenal-dev libvorbis0a libvorbis-dev libvorbisfile3
-
-# openSUSE 
-sudo zypper install Mesa-libGL1 Mesa-libGL-devel openal-soft openal-soft-devel libvorbis0 libvorbis-devel glfw2-devel libXi-devel xorg-x11-devel 
 
 go get -u -v github.com/g3n/engine/...
 ```
@@ -138,6 +145,8 @@ go get -u -v github.com/gin-gonic/gin
 go get -u -v github.com/BurntSushi/toml
 go get -u -v github.com/BurntSushi/toml/cmd/tomlv
 tomlv some-toml-file.toml
+
+go get -u -v github.com/komkom/toml
 ```
 
 ### Protocol Buffers
